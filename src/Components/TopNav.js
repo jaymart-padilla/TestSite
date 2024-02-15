@@ -5,7 +5,7 @@ export default function TopNav() {
   return (
     <Container>
       <Navbar collapseOnSelect expand="lg">
-        <Navbar.Brand href="#home" className="text-uppercase font-weight-bold">
+        <Navbar.Brand href="#" className="text-uppercase font-weight-bold">
           <span className="accent-color">Test</span>Site
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

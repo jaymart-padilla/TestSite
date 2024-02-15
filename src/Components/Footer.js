@@ -50,8 +50,8 @@ export default function Footer() {
   return (
     <>
       <Container fluid className="py-5 text-light footer upper-footer">
-        <Row className="container mx-auto">
-          <Col className="mb-3">
+        <Row className="container mx-auto flex-md-row flex-column">
+          <Col className="mb-md-3 mb-4">
             <h5>COMPANY</h5>
             <Nav className="flex-column" style={{ gap: "1rem" }}>
               <p className="p-0 mb-0 text-white-50">
@@ -70,7 +70,7 @@ export default function Footer() {
               </p>
             </Nav>
           </Col>
-          <Col className="mb-3">
+          <Col className="mb-md-3 mb-4">
             <h6 className="mb-3">Useful Links</h6>
             <Nav className="flex-column">
               {footerLinks.usefulLinks.map((link, index) => {
@@ -80,10 +80,7 @@ export default function Footer() {
                     style={{ gap: "1ch" }}
                     key={index}
                   >
-                    <i
-                      className="fa-solid fa-chevron-right fa-2xs"
-                      style={{ color: "var(--accent-color)" }}
-                    />
+                    <i className="fa-solid fa-chevron-right fa-2xs accent-color" />
                     <Nav.Link className="p-0 text-white-50" href={link.url}>
                       {link.title}
                     </Nav.Link>
@@ -92,7 +89,7 @@ export default function Footer() {
               })}
             </Nav>
           </Col>
-          <Col className="mb-3">
+          <Col className="mb-md-3 mb-4">
             <h6 className="mb-3">Our Services</h6>
             <Nav className="flex-column">
               {footerLinks.servicesLinks.map((link, index) => {
@@ -102,10 +99,7 @@ export default function Footer() {
                     style={{ gap: "1ch" }}
                     key={index}
                   >
-                    <i
-                      className="fa-solid fa-chevron-right fa-2xs"
-                      style={{ color: "var(--accent-color)" }}
-                    />
+                    <i className="fa-solid fa-chevron-right fa-2xs accent-color" />
                     <Nav.Link className="p-0 text-white-50" href={link.url}>
                       {link.title}
                     </Nav.Link>
@@ -114,14 +108,14 @@ export default function Footer() {
               })}
             </Nav>
           </Col>
-          <Col md={5} className="mb-3">
+          <Col md={5} className="mb-3 mt-md-0 mt-3">
             <Form className="d-flex flex-column" style={{ gap: "0.285rem" }}>
               <h6>Join Our Newsletter</h6>
               <p className="text-white-50">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Voluptates ea facere et esse aliquid.
               </p>
-              <InputGroup className="mb-3">
+              <InputGroup>
                 <FormControl />
                 <div className="input-group-append">
                   <Button
@@ -142,9 +136,9 @@ export default function Footer() {
           <p>
             &copy; Copyright <strong>TestSite</strong>. All rights reserved.
           </p>
-          <ul className="list-unstyled d-flex">
+          <ul className="list-unstyled d-flex" style={{ gap: "1rem" }}>
             {socialLinks.map((link, index) => (
-              <li key={index} className="ml-3">
+              <li key={index}>
                 <a className="link-body-emphasis" href={link.url}>
                   <i className={link.icon} />
                 </a>
