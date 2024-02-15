@@ -1,0 +1,8 @@
+.footer {
+  font-size: small;
+}
+
+.footer .footer-info-label {
+  font-weight: 500;
+  color: lightgray;
+}

@@ -1,0 +1,17 @@
+.gallery-nav-item > a {
+  color: black;
+  font-size: small;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.gallery-nav .nav-link.active,
+.gallery-nav .show > .nav-link {
+  background-color: #1bbd36 !important;
+}
+
+.gallery-nav-item > a:hover,
+.gallery-nav-item > a:focus {
+  background-color: #1bbd3666;
+  color: white;
+}
