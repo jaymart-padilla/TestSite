@@ -7,11 +7,11 @@
 
 .gallery-nav .nav-link.active,
 .gallery-nav .show > .nav-link {
-  background-color: #1bbd36 !important;
+  background-color: var(--accent-color) !important;
 }
 
 .gallery-nav-item > a:hover,
 .gallery-nav-item > a:focus {
-  background-color: #1bbd3666;
+  background-color: var(--accent-color-muted);
   color: white;
 }

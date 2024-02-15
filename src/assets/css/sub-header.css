@@ -13,5 +13,5 @@
   transform: translateX(-50%);
   width: 3.5ch;
   height: 0.2rem;
-  background-color: #1bbd36;
+  background-color: var(--accent-color);
 }

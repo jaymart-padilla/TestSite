@@ -1,5 +1,14 @@
+:root {
+  --accent-color: #1bbd36;
+  --accent-color-muted: #1bbd3666;
+}
+
 *,
 *::before,
 *::after {
   transition: all 100ms ease-in-out;
+}
+
+.accent-color {
+  color: var(--accent-color) !important;
 }

@@ -2,7 +2,19 @@
   font-size: small;
 }
 
+.upper-footer {
+  background-color: #1e1e1e;
+}
+
+.lower-footer {
+  background-color: #111111;
+}
+
 .footer .footer-info-label {
   font-weight: 500;
   color: lightgray;
+}
+
+.footer a:hover {
+  color: #f0f0f0 !important;
 }

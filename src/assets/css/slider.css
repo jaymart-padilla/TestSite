@@ -13,7 +13,7 @@
   width: 70%;
   margin: 0 auto;
   background-color: #00000099;
-  border-top: 0.25rem solid #1bbd36;
+  border-top: 0.25rem solid var(--accent-color);
   border-bottom: none;
   border-left: none;
   border-right: none;

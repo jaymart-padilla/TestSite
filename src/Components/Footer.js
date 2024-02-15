@@ -49,7 +49,7 @@ const socialLinks = [
 export default function Footer() {
   return (
     <>
-      <Container fluid className="py-5 bg-dark text-light footer">
+      <Container fluid className="py-5 text-light footer upper-footer">
         <Row className="container mx-auto">
           <Col className="mb-3">
             <h5>COMPANY</h5>
@@ -75,7 +75,15 @@ export default function Footer() {
             <Nav className="flex-column">
               {footerLinks.usefulLinks.map((link, index) => {
                 return (
-                  <Nav.Item className="mb-2" key={index}>
+                  <Nav.Item
+                    className="d-flex align-items-center mb-2"
+                    style={{ gap: "1ch" }}
+                    key={index}
+                  >
+                    <i
+                      className="fa-solid fa-chevron-right fa-2xs"
+                      style={{ color: "var(--accent-color)" }}
+                    />
                     <Nav.Link className="p-0 text-white-50" href={link.url}>
                       {link.title}
                     </Nav.Link>
@@ -89,7 +97,15 @@ export default function Footer() {
             <Nav className="flex-column">
               {footerLinks.servicesLinks.map((link, index) => {
                 return (
-                  <Nav.Item className="mb-2" key={index}>
+                  <Nav.Item
+                    className="d-flex align-items-center mb-2"
+                    style={{ gap: "1ch" }}
+                    key={index}
+                  >
+                    <i
+                      className="fa-solid fa-chevron-right fa-2xs"
+                      style={{ color: "var(--accent-color)" }}
+                    />
                     <Nav.Link className="p-0 text-white-50" href={link.url}>
                       {link.title}
                     </Nav.Link>
@@ -98,11 +114,12 @@ export default function Footer() {
               })}
             </Nav>
           </Col>
-          <Col md={5} className="offset-md-1 mb-3">
-            <Form>
-              <h6>Subscribe to our newsletter</h6>
+          <Col md={5} className="mb-3">
+            <Form className="d-flex flex-column" style={{ gap: "0.285rem" }}>
+              <h6>Join Our Newsletter</h6>
               <p className="text-white-50">
-                Monthly digest of what`s new and exciting from us.
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Voluptates ea facere et esse aliquid.
               </p>
               <InputGroup className="mb-3">
                 <FormControl />
@@ -120,11 +137,7 @@ export default function Footer() {
           </Col>
         </Row>
       </Container>
-      <Container
-        fluid
-        className="text-light footer"
-        style={{ backgroundColor: "black" }}
-      >
+      <Container fluid className="text-light footer lower-footer">
         <div className="container d-flex flex-column flex-sm-row justify-content-between py-4">
           <p>
             &copy; Copyright <strong>TestSite</strong>. All rights reserved.
