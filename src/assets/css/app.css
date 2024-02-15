@@ -12,3 +12,20 @@
 .accent-color {
   color: var(--accent-color) !important;
 }
+
+a.animated-link:after {
+  display: block;
+  content: "";
+  width: inherit;
+  border-bottom: solid 3px var(--accent-color);
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+
+a.animated-link:hover:after {
+  transform: scaleX(1);
+}
+
+a.animated-link:after {
+  transform-origin: left;
+}

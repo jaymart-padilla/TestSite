@@ -1,39 +1,13 @@
 .banner {
-  display: flex;
-  justify-content: center;
   gap: 1rem;
   padding: 2.75rem 4rem !important;
   font-size: 0.9rem;
 }
 
 .banner .banner-child {
-  width: 50%;
+  width: 100%;
 }
 
 .banner .banner-child > p {
   margin: 0;
-}
-
-.banner .banner-bullet-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 0;
-}
-
-.banner .banner-bullet {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-
-.banner .banner-bullet > p {
-  margin: 0;
-}
-
-.banner .banner-bullet-icon {
-  color: #63e6be;
 }

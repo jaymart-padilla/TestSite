@@ -81,7 +81,10 @@ export default function Footer() {
                     key={index}
                   >
                     <i className="fa-solid fa-chevron-right fa-2xs accent-color" />
-                    <Nav.Link className="p-0 text-white-50" href={link.url}>
+                    <Nav.Link
+                      className="p-0 text-white-50 animated-link"
+                      href={link.url}
+                    >
                       {link.title}
                     </Nav.Link>
                   </Nav.Item>
@@ -100,7 +103,10 @@ export default function Footer() {
                     key={index}
                   >
                     <i className="fa-solid fa-chevron-right fa-2xs accent-color" />
-                    <Nav.Link className="p-0 text-white-50" href={link.url}>
+                    <Nav.Link
+                      className="p-0 text-white-50 animated-link"
+                      href={link.url}
+                    >
                       {link.title}
                     </Nav.Link>
                   </Nav.Item>
