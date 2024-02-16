@@ -1,5 +1,5 @@
 import { Card, Col, Container, Row } from "react-bootstrap";
-import SubHeader from "../../Components/SubHeader";
+import SubHeader from "./SubHeader";
 
 const clients = [
   { img: `<i class='fa-brands fa-stripe fa-4x'/>` },
@@ -14,7 +14,7 @@ const clients = [
 
 export default function Clients() {
   return (
-    <Container className="my-4">
+    <Container className="mt-4 mb-5">
       <SubHeader title="Clients" />
       <Row className="no-gutters">
         {clients.map((client, index) => {

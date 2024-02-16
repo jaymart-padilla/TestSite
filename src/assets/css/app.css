@@ -17,7 +17,7 @@ a.animated-link:after {
   display: block;
   content: "";
   width: inherit;
-  border-bottom: solid 3px var(--accent-color);
+  border-bottom: solid 0.15rem var(--accent-color);
   transform: scaleX(0);
   transition: transform 250ms ease-in-out;
 }

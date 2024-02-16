@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import {
   Button,
   Col,
@@ -8,7 +10,30 @@ import {
   Nav,
   Row,
 } from "react-bootstrap";
-import "../assets/css/footer.css";
+// import "../assets/css/footer.css";
+
+const styles = css`
+  .footer {
+    font-size: small;
+  }
+
+  .upper-footer {
+    background-color: #1e1e1e;
+  }
+
+  .lower-footer {
+    background-color: #111111;
+  }
+
+  .footer .footer-info-label {
+    font-weight: 500;
+    color: lightgray;
+  }
+
+  .footer a:hover {
+    color: #f0f0f0 !important;
+  }
+`;
 
 const footerLinks = {
   usefulLinks: [
@@ -48,7 +73,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <>
+    <footer css={styles}>
       <Container fluid className="py-5 text-light footer upper-footer">
         <Row className="container mx-auto flex-md-row flex-column">
           <Col className="mb-md-3 mb-4">
@@ -153,6 +178,6 @@ export default function Footer() {
           </ul>
         </div>
       </Container>
-    </>
+    </footer>
   );
 }

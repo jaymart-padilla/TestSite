@@ -1,5 +1,26 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import { Container, Nav, Row, Card } from "react-bootstrap";
-import "../../assets/css/gallery.css";
+
+const styles = css`
+  .gallery-nav-item > a {
+    color: black;
+    font-size: small;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .gallery-nav .nav-link.active,
+  .gallery-nav .show > .nav-link {
+    background-color: var(--accent-color);
+  }
+
+  .gallery-nav-item > a:hover,
+  .gallery-nav-item > a:focus {
+    background-color: var(--accent-color-muted);
+    color: white;
+  }
+`;
 
 const tabs = [
   { title: "All", link: "link-1" },
@@ -40,7 +61,7 @@ const galleryItems = [
 
 export default function Gallery() {
   return (
-    <Container className="py-4">
+    <Container css={styles} className="py-4">
       <Nav
         variant="pills"
         className="justify-content-center gallery-nav"

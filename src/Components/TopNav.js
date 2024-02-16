@@ -1,9 +1,20 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
-import "../assets/css/top-nav.css";
+
+const styles = css`
+  .nav-container {
+    font-size: small;
+  }
+
+  .nav-container > .nav-container-link {
+    font-weight: 500;
+  }
+`;
 
 export default function TopNav() {
   return (
-    <Container>
+    <Container css={styles}>
       <Navbar collapseOnSelect expand="lg">
         <Navbar.Brand href="#" className="text-uppercase font-weight-bold">
           <span className="accent-color">Test</span>Site

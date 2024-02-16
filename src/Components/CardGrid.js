@@ -1,5 +1,13 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import { Card, Col, Container, Row } from "react-bootstrap";
-import "../../assets/css/card-grid.css";
+
+const styles = css`
+  .card-grid {
+    background-color: #eee;
+    padding: 2.75rem 0rem;
+  }
+`;
 
 const cardItems = [
   {
@@ -38,14 +46,16 @@ const IMG_SIZE = 74;
 
 export default function CardGrid() {
   return (
-    <section className="card-grid">
-      <Container>
-        <Row className="no-gutters">
-          {cardItems.map((cardItem, index) => {
-            return <CardItem {...cardItem} key={index} />;
-          })}
-        </Row>
-      </Container>
+    <section css={styles}>
+      <div className="card-grid">
+        <Container className="card-grid">
+          <Row className="no-gutters">
+            {cardItems.map((cardItem, index) => {
+              return <CardItem {...cardItem} key={index} />;
+            })}
+          </Row>
+        </Container>
+      </div>
     </section>
   );
 }
