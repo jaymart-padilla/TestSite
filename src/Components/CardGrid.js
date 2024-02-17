@@ -2,12 +2,12 @@
 import { css } from "@emotion/react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 
-const styles = css`
-  .card-grid {
-    background-color: #eee;
-    padding: 2.75rem 0rem;
-  }
-`;
+const styles = {
+  cardGrid: css({
+    backgroundColor: "#eee",
+    padding: "2.75rem 0rem",
+  }),
+};
 
 const cardItems = [
   {
@@ -46,17 +46,13 @@ const IMG_SIZE = 74;
 
 export default function CardGrid() {
   return (
-    <section css={styles}>
-      <div className="card-grid">
-        <Container className="card-grid">
-          <Row className="no-gutters">
-            {cardItems.map((cardItem, index) => {
-              return <CardItem {...cardItem} key={index} />;
-            })}
-          </Row>
-        </Container>
-      </div>
-    </section>
+    <Container css={styles.cardGrid}>
+      <Row className="no-gutters">
+        {cardItems.map((cardItem, index) => {
+          return <CardItem {...cardItem} key={index} />;
+        })}
+      </Row>
+    </Container>
   );
 }
 

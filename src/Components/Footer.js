@@ -10,30 +10,29 @@ import {
   Nav,
   Row,
 } from "react-bootstrap";
-// import "../assets/css/footer.css";
 
-const styles = css`
-  .footer {
-    font-size: small;
-  }
+const styles = {
+  footer: css({
+    fontSize: "small",
 
-  .upper-footer {
-    background-color: #1e1e1e;
-  }
+    "& a:hover": {
+      color: "#f0f0f0 !important",
+    },
+  }),
 
-  .lower-footer {
-    background-color: #111111;
-  }
+  upperFooter: css({
+    backgroundColor: "#1e1e1e",
+  }),
 
-  .footer .footer-info-label {
-    font-weight: 500;
-    color: lightgray;
-  }
+  lowerFooter: css({
+    backgroundColor: "#111111",
+  }),
 
-  .footer a:hover {
-    color: #f0f0f0 !important;
-  }
-`;
+  footerInfoLabel: css({
+    fontWeight: 500,
+    color: "lightgray",
+  }),
+};
 
 const footerLinks = {
   usefulLinks: [
@@ -73,8 +72,8 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer css={styles}>
-      <Container fluid className="py-5 text-light footer upper-footer">
+    <footer css={styles.footer}>
+      <Container fluid className="py-5 text-light" css={styles.upperFooter}>
         <Row className="container mx-auto flex-md-row flex-column">
           <Col className="mb-md-3 mb-4">
             <h5>COMPANY</h5>
@@ -87,10 +86,10 @@ export default function Footer() {
                 United States
               </p>
               <p className="p-0 mb-0 text-white-50">
-                <strong className="footer-info-label">Phone: </strong>+1 5589
+                <strong css={styles.footerInfoLabel}>Phone: </strong>+1 5589
                 55488 55
                 <br />
-                <strong className="footer-info-label">Email: </strong>
+                <strong css={styles.footerInfoLabel}>Email: </strong>
                 info@example.com
               </p>
             </Nav>
@@ -162,7 +161,7 @@ export default function Footer() {
           </Col>
         </Row>
       </Container>
-      <Container fluid className="text-light footer lower-footer">
+      <Container fluid className="text-light footer" css={styles.lowerFooter}>
         <div className="container d-flex flex-column flex-sm-row justify-content-between py-4">
           <p>
             &copy; Copyright <strong>TestSite</strong>. All rights reserved.

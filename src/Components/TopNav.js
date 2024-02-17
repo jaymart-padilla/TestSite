@@ -2,26 +2,26 @@
 import { css } from "@emotion/react";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 
-const styles = css`
-  .nav-container {
-    font-size: small;
-  }
+const styles = {
+  navContainer: css({
+    fontSize: "small",
 
-  .nav-container > .nav-container-link {
-    font-weight: 500;
-  }
-`;
+    ".nav-container-link": {
+      fontWeight: "500",
+    },
+  }),
+};
 
 export default function TopNav() {
   return (
-    <Container css={styles}>
+    <Container>
       <Navbar collapseOnSelect expand="lg">
         <Navbar.Brand href="#" className="text-uppercase font-weight-bold">
           <span className="accent-color">Test</span>Site
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" className="gap-5">
-          <Nav className="ml-auto nav-container">
+          <Nav className="ml-auto" css={styles.navContainer}>
             <Nav.Link href="#" className="text-dark nav-container-link">
               Home
             </Nav.Link>

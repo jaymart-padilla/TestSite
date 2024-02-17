@@ -2,25 +2,27 @@
 import { css } from "@emotion/react";
 import { Container, Nav, Row, Card } from "react-bootstrap";
 
-const styles = css`
-  .gallery-nav-item > a {
-    color: black;
-    font-size: small;
-    font-weight: 500;
-    text-transform: uppercase;
-  }
+const styles = {
+  galleryNav: css({
+    ".nav-link.active, .show > .nav-link": {
+      backgroundColor: "var(--accent-color)",
+    },
+  }),
 
-  .gallery-nav .nav-link.active,
-  .gallery-nav .show > .nav-link {
-    background-color: var(--accent-color);
-  }
+  galleryNavItem: css({
+    "> a": {
+      color: "black",
+      fontSize: "small",
+      fontWeight: 500,
+      textTransform: "uppercase",
+    },
 
-  .gallery-nav-item > a:hover,
-  .gallery-nav-item > a:focus {
-    background-color: var(--accent-color-muted);
-    color: white;
-  }
-`;
+    "> a:hover, > a:focus": {
+      backgroundColor: "var(--accent-color-muted)",
+      color: "white",
+    },
+  }),
+};
 
 const tabs = [
   { title: "All", link: "link-1" },
@@ -64,12 +66,13 @@ export default function Gallery() {
     <Container css={styles} className="py-4">
       <Nav
         variant="pills"
-        className="justify-content-center gallery-nav"
+        className="justify-content-center"
         defaultActiveKey="link-1"
+        css={styles.galleryNav}
       >
         {tabs.map((tab, index) => {
           return (
-            <Nav.Item className="gallery-nav-item" key={index}>
+            <Nav.Item css={styles.galleryNavItem} key={index}>
               <Nav.Link eventKey={tab.link}>{tab.title}</Nav.Link>
             </Nav.Item>
           );
