@@ -21,7 +21,7 @@ export default function Banner() {
       css={styles.banner}
     >
       <div css={styles.bannerChild}>
-        <h3 className="text-uppercase">Lorem ipsum dolor sit amet.</h3>
+        <h4 className="text-uppercase">Lorem ipsum dolor sit amet.</h4>
         <p className="lead m-0">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed
           consectetur a porro.

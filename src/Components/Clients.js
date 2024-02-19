@@ -14,9 +14,9 @@ const clients = [
 
 export default function Clients() {
   return (
-    <Container className="mt-4 mb-5">
+    <Container className="section">
       <SubHeader title="Clients" />
-      <Row className="no-gutters">
+      <Row className="no-gutters mt-5">
         {clients.map((client, index) => {
           return <ClientCardGrid img={client.img} key={index} />;
         })}

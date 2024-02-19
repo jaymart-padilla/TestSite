@@ -10,21 +10,26 @@ const styles = {
     "&::after": {
       content: '""',
       position: "absolute",
-      bottom: "-0.75rem",
+      bottom: "-0.85rem",
       left: "50%",
       right: "50%",
       transform: "translateX(-50%)",
       width: "3.5ch",
-      height: "0.25rem",
+      height: "0.175rem",
       backgroundColor: "var(--accent-color)",
     },
   }),
 };
 
-export default function SubHeader({ title }) {
+export default function SubHeader({ title, description = "" }) {
   return (
-    <h3 className="text-center mb-5" css={styles.subHeader}>
-      {title}
-    </h3>
+    <>
+      <h3 className="text-center mb-4" css={styles.subHeader}>
+        {title}
+      </h3>
+      {description && (
+        <p className="text-center font-weight-light">{description}</p>
+      )}
+    </>
   );
 }

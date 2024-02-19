@@ -63,7 +63,7 @@ const galleryItems = [
 
 export default function Gallery() {
   return (
-    <Container css={styles} className="py-4">
+    <Container css={styles} className="my-5">
       <Nav
         variant="pills"
         className="justify-content-center"

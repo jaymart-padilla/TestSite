@@ -1,71 +1,120 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { Card, Col, Container, Row } from "react-bootstrap";
+import SubHeader from "./SubHeader";
 
 const styles = {
   cardGrid: css({
-    backgroundColor: "#eee",
+    backgroundImage:
+      "radial-gradient(circle, rgba(255,255,255) 0%, rgba(238,238,238) 50%, rgba(224,224,224) 100%);",
     padding: "2.75rem 0rem",
+  }),
+
+  cardImage: css({
+    objectFit: "cover",
+    backgroundPosition: "center",
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
   }),
 };
 
-const cardItems = [
-  {
-    title: "Card 1",
-    description: "Lorem ipsum dolor sit amet.",
-    img: "/images/card-grid/cat.svg",
-  },
-  {
-    title: "Card 1",
-    description: "Lorem ipsum dolor sit amet.",
-    img: "/images/card-grid/dog.svg",
-  },
-  {
-    title: "Card 1",
-    description: "Lorem ipsum dolor sit amet.",
-    img: "/images/card-grid/luv.svg",
-  },
-  {
-    title: "Card 1",
-    description: "Lorem ipsum dolor sit amet.",
-    img: "/images/card-grid/snow.svg",
-  },
-  {
-    title: "Card 1",
-    description: "Lorem ipsum dolor sit amet.",
-    img: "/images/card-grid/usr.svg",
-  },
-  {
-    title: "Card 1",
-    description: "Lorem ipsum dolor sit amet.",
-    img: "/images/card-grid/wmn.svg",
-  },
-];
+export default function CardGrid({
+  cardItems,
+  title = "",
+  description = "",
+  colSize = 3,
+  withShadow = false,
+  imgHeight = 74,
+  padded = true,
+}) {
+  if (!cardItems || !cardItems.length > 0) return null;
 
-const IMG_SIZE = 74;
-
-export default function CardGrid() {
   return (
-    <Container css={styles.cardGrid}>
-      <Row className="no-gutters">
-        {cardItems.map((cardItem, index) => {
-          return <CardItem {...cardItem} key={index} />;
-        })}
-      </Row>
-    </Container>
+    <section css={styles.cardGrid}>
+      <Container>
+        {title && <SubHeader title={title} description={description} />}
+        <Row className="no-gutters">
+          {cardItems.map((cardItem, index) => {
+            colSize = colSize < 0 ? 1 : colSize > 12 ? 12 : colSize;
+            return (
+              <Col
+                className="text-center"
+                sm={12}
+                md={6}
+                lg={12 / colSize}
+                key={index}
+              >
+                {padded ? (
+                  <PaddedCardItem
+                    {...cardItem}
+                    imgHeight={imgHeight}
+                    withShadow={withShadow}
+                  />
+                ) : (
+                  <CardItem
+                    {...cardItem}
+                    imgHeight={imgHeight}
+                    withShadow={withShadow}
+                  />
+                )}
+              </Col>
+            );
+          })}
+        </Row>
+      </Container>
+    </section>
   );
 }
 
-function CardItem({ title, description, img }) {
+function PaddedCardItem({
+  title,
+  description,
+  img,
+  footer,
+  imgHeight,
+  withShadow,
+}) {
   return (
-    <Col className="text-center" sm={12} md={6} lg={4}>
-      <Card className="py-4 m-3">
-        <Card.Body>
-          <img src={img} alt={title} width={IMG_SIZE} height={IMG_SIZE} />
-          <Card.Title>{title}</Card.Title>
-          <Card.Text>{description}</Card.Text>
-        </Card.Body>
-      </Card>
-    </Col>
+    <Card className={`py-4 m-3 ${withShadow && "shadow-sm"}`}>
+      <Card.Img
+        variant="top"
+        style={{ padding: "1.25rem", paddingBottom: 0 }}
+        src={img}
+        alt={title}
+        height={imgHeight}
+      />
+      <Card.Body>
+        {title && <Card.Title>{title}</Card.Title>}
+        {description && <Card.Text>{description}</Card.Text>}
+        {footer && (
+          <Card.Text>
+            <small className="text-muted">{footer}</small>
+          </Card.Text>
+        )}
+      </Card.Body>
+    </Card>
+  );
+}
+
+function CardItem({ title, description, img, footer, imgHeight, withShadow }) {
+  return (
+    <Card className={`m-3 ${withShadow && "shadow-sm"}`}>
+      <Card.Img
+        variant="top"
+        src={img}
+        alt={title}
+        height={imgHeight}
+        css={styles.cardImage}
+      />
+      <Card.Body>
+        {title && <Card.Title>{title}</Card.Title>}
+        {description && <Card.Text>{description}</Card.Text>}
+        {footer && (
+          <Card.Text>
+            <small className="text-muted">{footer}</small>
+          </Card.Text>
+        )}
+      </Card.Body>
+    </Card>
   );
 }
