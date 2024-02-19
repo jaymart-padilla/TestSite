@@ -9,6 +9,10 @@ const styles = {
     ".nav-container-link": {
       fontWeight: "500",
     },
+    ".nav-container-dropdown-link": {
+      fontSize: "small",
+      fontWeight: "500",
+    },
   }),
 };
 
@@ -26,10 +30,31 @@ export default function TopNav() {
               Home
             </Nav.Link>
             <NavDropdown title="About" className="text-dark nav-container-link">
-              <NavDropdown.Item href="#">About Us</NavDropdown.Item>
-              <NavDropdown.Item href="#">Team</NavDropdown.Item>
-              <NavDropdown.Item href="#">Testimonials</NavDropdown.Item>
-              <NavDropdown.Item href="#">Deep Dropdown</NavDropdown.Item>
+              <NavDropdown.Item
+                href="#"
+                className="nav-container-dropdown-link"
+              >
+                About Us
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                href="#"
+                className="nav-container-dropdown-link"
+              >
+                Team
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                href="#"
+                className="nav-container-dropdown-link"
+              >
+                Testimonials
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                href="#"
+                className="nav-container-dropdown-link"
+              >
+                <span className="mr-4">Deep Dropdown</span>
+                <i className="fa-solid fa-chevron-right" />
+              </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="#" className="text-dark nav-container-link">
               Services
