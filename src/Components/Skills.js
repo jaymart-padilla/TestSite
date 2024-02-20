@@ -2,6 +2,7 @@
 import { css } from "@emotion/react";
 import { Col, Container, ProgressBar, Row } from "react-bootstrap";
 import SubHeader from "./SubHeader";
+import { skills } from "../config/dummy-data";
 
 const styles = {
   progress: css({
@@ -18,33 +19,6 @@ const styles = {
     fontWeight: 500,
   }),
 };
-
-const skills = [
-  {
-    label: "HTML",
-    value: 100,
-  },
-  {
-    label: "PHP",
-    value: 80,
-  },
-  {
-    label: "CSS",
-    value: 90,
-  },
-  {
-    label: "WordPress/CMS",
-    value: 90,
-  },
-  {
-    label: "JavaScript",
-    value: 75,
-  },
-  {
-    label: "PhotoShop",
-    value: 55,
-  },
-];
 
 export default function Skills() {
   return (

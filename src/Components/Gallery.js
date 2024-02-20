@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { Container, Nav, Row, Card } from "react-bootstrap";
+import { galleryItems } from "../config/dummy-data";
 
 const styles = {
   galleryNav: css({
@@ -29,36 +30,6 @@ const tabs = [
   { title: "App", link: "link-2" },
   { title: "Card", link: "link-3" },
   { title: "Web", link: "link-4" },
-];
-
-const galleryItems = [
-  {
-    img: "/images/gallery/img-1.jpg",
-  },
-  {
-    img: "/images/gallery/img-2.jpg",
-  },
-  {
-    img: "/images/gallery/img-3.jpg",
-  },
-  {
-    img: "/images/gallery/img-4.jpg",
-  },
-  {
-    img: "/images/gallery/img-5.jpg",
-  },
-  {
-    img: "/images/gallery/img-6.jpg",
-  },
-  {
-    img: "/images/gallery/img-7.jpg",
-  },
-  {
-    img: "/images/gallery/img-8.jpg",
-  },
-  {
-    img: "/images/gallery/img-9.jpg",
-  },
 ];
 
 export default function Gallery() {

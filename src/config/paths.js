@@ -27,4 +27,8 @@ export const paths = {
     url: "/contact",
     text: "Contact",
   },
+  team: {
+    url: "/team",
+    text: "Team",
+  },
 };

@@ -1,16 +1,6 @@
 import { Card, Col, Container, Row } from "react-bootstrap";
 import SubHeader from "./SubHeader";
-
-const clients = [
-  { img: `<i class='fa-brands fa-stripe fa-4x'/>` },
-  { img: `<i class='fa-brands fa-wix fa-4x'/>` },
-  { img: `<i class='fa-brands fa-line fa-4x'/>` },
-  { img: `<i class='fa-brands fa-cc-visa fa-4x'/>` },
-  { img: `<i class='fa-brands fa-node fa-4x'/>` },
-  { img: `<i class='fa-brands fa-wizards-of-the-coast fa-4x'/>` },
-  { img: `<i class='fa-brands fa-sass fa-4x'/>` },
-  { img: `<i class='fa-brands fa-less fa-4x'/>` },
-];
+import { clients } from "../config/dummy-data";
 
 export default function Clients() {
   return (

@@ -1,23 +1,19 @@
 import TopNav from "../Components/TopNav";
-import Banner from "../Components/Banner";
 import Footer from "../Components/Footer";
 import CardGrid from "../Components/CardGrid";
-import Clients from "../Components/Clients";
 import TopBreadcrumbs from "../Components/TopBreadcrumbs";
-import Skills from "../Components/Skills";
 import { paths } from "../config/paths";
 import { team } from "../config/dummy-data";
 
-export default function About() {
+export default function Team() {
   return (
     <div className="vh-100 d-flex flex-column">
       <TopNav />
       <TopBreadcrumbs
-        links={[paths.home, paths.about]}
-        activeLink={paths.about}
+        links={[paths.home, paths.team]}
+        activeLink={paths.team}
       />
       <div className="flex-grow-1">
-        <Banner />
         <CardGrid
           cardItems={team}
           title="Our Team"
@@ -27,8 +23,6 @@ export default function About() {
           padded={false}
           imgHeight={280}
         />
-        <Skills />
-        <Clients />
       </div>
       <Footer />
     </div>
