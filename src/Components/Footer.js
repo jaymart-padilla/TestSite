@@ -10,6 +10,8 @@ import {
   Nav,
   Row,
 } from "react-bootstrap";
+import { socialLinks as socialUrl } from "../config/social-links";
+import { paths } from "../config/paths";
 
 const styles = {
   footer: css({
@@ -36,9 +38,9 @@ const styles = {
 
 const footerLinks = {
   usefulLinks: [
-    { title: "Home", url: "#" },
-    { title: "About Us", url: "#" },
-    { title: "Services", url: "#" },
+    { title: paths.home.text, url: paths.home.url },
+    { title: paths.about.text, url: paths.about.url },
+    { title: paths.services.text, url: paths.services.url },
     { title: "Terms of Service", url: "#" },
     { title: "Privacy Policy", url: "#" },
   ],
@@ -54,19 +56,19 @@ const footerLinks = {
 const socialLinks = [
   {
     icon: "fa-brands fa-twitter fa-xl text-light",
-    url: "#",
+    url: socialUrl.twitter,
   },
   {
     icon: "fa-brands fa-facebook fa-xl text-light",
-    url: "#",
+    url: socialUrl.facebook,
   },
   {
     icon: "fa-brands fa-square-instagram fa-xl text-light",
-    url: "#",
+    url: socialUrl.instagram,
   },
   {
     icon: "fa-brands fa-linkedin fa-xl text-light",
-    url: "#",
+    url: socialUrl.linkedIn,
   },
 ];
 

@@ -31,4 +31,8 @@ export const paths = {
     url: "/team",
     text: "Team",
   },
+  testimonials: {
+    url: "/testimonials",
+    text: "Testimonials",
+  },
 };

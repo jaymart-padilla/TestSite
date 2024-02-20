@@ -1,6 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import { paths } from "../config/paths";
+import { socialLinks } from "../config/social-links";
 
 const styles = {
   navContainer: css({
@@ -20,33 +22,39 @@ export default function TopNav() {
   return (
     <Container>
       <Navbar collapseOnSelect expand="lg">
-        <Navbar.Brand href="#" className="text-uppercase font-weight-bold">
+        <Navbar.Brand
+          href={paths.home.url}
+          className="text-uppercase font-weight-bold"
+        >
           <span className="accent-color">Test</span>Site
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" className="gap-5">
           <Nav className="ml-auto" css={styles.navContainer}>
-            <Nav.Link href="#" className="text-dark nav-container-link">
-              Home
+            <Nav.Link
+              href={paths.home.url}
+              className="text-dark nav-container-link"
+            >
+              {paths.home.text}
             </Nav.Link>
             <NavDropdown title="About" className="text-dark nav-container-link">
               <NavDropdown.Item
-                href="#"
+                href={paths.about.url}
                 className="nav-container-dropdown-link"
               >
-                About Us
+                {paths.about.text}
               </NavDropdown.Item>
               <NavDropdown.Item
-                href="#"
+                href={paths.team.url}
                 className="nav-container-dropdown-link"
               >
-                Team
+                {paths.team.text}
               </NavDropdown.Item>
               <NavDropdown.Item
-                href="#"
+                href={paths.testimonials.url}
                 className="nav-container-dropdown-link"
               >
-                Testimonials
+                {paths.testimonials.text}
               </NavDropdown.Item>
               <NavDropdown.Item
                 href="#"
@@ -56,34 +64,49 @@ export default function TopNav() {
                 <i className="fa-solid fa-chevron-right" />
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#" className="text-dark nav-container-link">
-              Services
+            <Nav.Link
+              href={paths.services.url}
+              className="text-dark nav-container-link"
+            >
+              {paths.services.text}
             </Nav.Link>
-            <Nav.Link href="#" className="text-dark nav-container-link">
-              Portfolio
+            <Nav.Link
+              href={paths.portfolio.url}
+              className="text-dark nav-container-link"
+            >
+              {paths.portfolio.text}
             </Nav.Link>
-            <Nav.Link href="#" className="text-dark nav-container-link">
-              Pricing
+            <Nav.Link
+              href={paths.pricing.url}
+              className="text-dark nav-container-link"
+            >
+              {paths.pricing.text}
             </Nav.Link>
-            <Nav.Link href="#" className="text-dark nav-container-link">
-              Blog
+            <Nav.Link
+              href={paths.blog.url}
+              className="text-dark nav-container-link"
+            >
+              {paths.blog.text}
             </Nav.Link>
-            <Nav.Link href="#" className="text-dark nav-container-link">
-              Contact
+            <Nav.Link
+              href={paths.contact.url}
+              className="text-dark nav-container-link"
+            >
+              {paths.contact.text}
             </Nav.Link>
           </Nav>
           <div className="d-none d-lg-block mx-2">|</div>
           <Nav>
-            <Nav.Link href="#">
+            <Nav.Link href={socialLinks.twitter} target="_blank">
               <i className="fa-brands fa-twitter" />
             </Nav.Link>
-            <Nav.Link href="#">
+            <Nav.Link href={socialLinks.facebook} target="_blank">
               <i className="fa-brands fa-facebook" />
             </Nav.Link>
-            <Nav.Link href="#">
+            <Nav.Link href={socialLinks.instagram} target="_blank">
               <i className="fa-brands fa-square-instagram" />
             </Nav.Link>
-            <Nav.Link href="#">
+            <Nav.Link href={socialLinks.linkedIn} target="_blank">
               <i className="fa-brands fa-linkedin" />
             </Nav.Link>
           </Nav>

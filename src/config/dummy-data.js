@@ -59,7 +59,7 @@ export const clients = [
   { img: `<i class='fa-brands fa-less fa-4x'/>` },
 ];
 
-export const cardItems = [
+export const services = [
   {
     title: "Card 1",
     description: "Lorem ipsum dolor sit amet.",
