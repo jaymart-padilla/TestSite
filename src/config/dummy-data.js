@@ -121,3 +121,42 @@ export const galleryItems = [
     img: "/images/gallery/img-9.jpg",
   },
 ];
+
+export const testimonials = [
+  {
+    name: "John Doe",
+    title: "CEO",
+    img: "/images/testimonials/img-1.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati eos possimus consequuntur corporis, fugiat atque ut facere quod adipisci assumenda.",
+  },
+  {
+    name: "Jane Smith",
+    title: "CTO",
+    img: "/images/testimonials/img-2.jpg",
+    text: "Consectetur adipisicing elit. Obcaecati eos possimus consequuntur corporis, fugiat atque ut facere quod adipisci.",
+  },
+  {
+    name: "David Johnson",
+    title: "COO",
+    img: "/images/testimonials/img-3.jpg",
+    text: "Dolor sit amet consectetur adipisicing elit. Obcaecati eos possimus consequuntur corporis, fugiat atque ut facere quod adipisci assumenda.",
+  },
+  {
+    name: "Emily Brown",
+    title: "CFO",
+    img: "/images/testimonials/img-4.jpg",
+    text: "Sit amet consectetur adipisicing elit. Obcaecati eos possimus consequuntur corporis, fugiat atque ut facere quod adipisci assumenda.",
+  },
+  {
+    name: "Michael Wilson",
+    title: "CMO",
+    img: "/images/testimonials/img-5.jpg",
+    text: "Adipisicing elit. Obcaecati eos possimus consequuntur corporis, fugiat atque ut facere quod adipisci assumenda.",
+  },
+  {
+    name: "Olivia Taylor",
+    title: "CTO",
+    img: "/images/testimonials/img-6.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati eos possimus consequuntur.",
+  },
+];

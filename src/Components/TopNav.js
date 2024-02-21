@@ -9,12 +9,16 @@ const styles = {
     fontSize: "small",
 
     ".nav-container-link": {
-      fontWeight: "500",
+      fontWeight: 500,
     },
     ".nav-container-dropdown-link": {
       fontSize: "small",
-      fontWeight: "500",
+      fontWeight: 500,
     },
+  }),
+
+  navbarBrand: css({
+    fontSize: "1.5rem",
   }),
 };
 
@@ -25,6 +29,7 @@ export default function TopNav() {
         <Navbar.Brand
           href={paths.home.url}
           className="text-uppercase font-weight-bold"
+          css={styles.navbarBrand}
         >
           <span className="accent-color">Test</span>Site
         </Navbar.Brand>
