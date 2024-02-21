@@ -15,7 +15,6 @@ import "./assets/css/app.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    // using string templates creates an error on routes for some reason
     <Route path="/" element={<IndexLayout />} errorElement={<ErrorPage />}>
       <Route errorElement={<ErrorPage />}>
         <Route index element={<Index />} />
