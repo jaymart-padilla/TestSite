@@ -160,3 +160,54 @@ export const testimonials = [
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati eos possimus consequuntur.",
   },
 ];
+
+export const features = [
+  {
+    title: "Lorem Ipsum",
+    img: "<i class='fa-brands fa-html5 fa-2x' style='color: #E34F26;'/>",
+  },
+  {
+    title: "Dolor Sitema",
+    img: "<i class='fa-brands fa-css3 fa-2x' style='color: #1572B6;'/>",
+  },
+  {
+    title: "Sed Perspiciatis",
+    img: "<i class='fa-brands fa-js fa-2x' style='color: #F7DF1E;'/>",
+  },
+  {
+    title: "Magni Dolores",
+    img: "<i class='fa-brands fa-node fa-2x' style='color: #43853D;'/>",
+  },
+  {
+    title: "Nemo Enim",
+    img: "<i class='fa-brands fa-react fa-2x' style='color: #61DAFB;'/>",
+  },
+  {
+    title: "Elusmod Tempor",
+    img: "<i class='fa-brands fa-vuejs fa-2x' style='color: #42B883;'/>",
+  },
+  {
+    title: "Omnis Voluptas",
+    img: "<i class='fa-brands fa-laravel fa-2x' style='color: #FF2D20;'/>",
+  },
+  {
+    title: "Repellendus",
+    img: "<i class='fa-brands fa-docker fa-2x' style='color: #2496ED;'/>",
+  },
+  {
+    title: "Quaerat Voluptas",
+    img: "<i class='fa-brands fa-angular fa-2x' style='color: #DD0031;'/>",
+  },
+  {
+    title: "Ullamco Laboris",
+    img: "<i class='fa-brands fa-python fa-2x' style='color: #306998;'/>",
+  },
+  {
+    title: "Nisi Ut Aliquid",
+    img: "<i class='fa-brands fa-aws fa-2x' style='color: #FF9900;'/>",
+  },
+  {
+    title: "Ex Ea Commodo",
+    img: "<i class='fa-brands fa-rust fa-2x' style='color: #000000;'/>",
+  },
+];

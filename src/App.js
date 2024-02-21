@@ -10,6 +10,7 @@ import Index from "./Pages/Index";
 import About from "./Pages/About";
 import Team from "./Pages/Team";
 import Testimonials from "./Pages/Testimonials";
+import Services from "./Pages/Services";
 import { paths } from "./config/paths";
 import "./assets/css/app.css";
 
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
         <Route path={paths.about.url} element={<About />} />
         <Route path={paths.team.url} element={<Team />} />
         <Route path={paths.testimonials.url} element={<Testimonials />} />
+        <Route path={paths.services.url} element={<Services />} />
       </Route>
     </Route>
   )

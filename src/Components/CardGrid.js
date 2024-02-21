@@ -26,6 +26,7 @@ export default function CardGrid({
   withShadow = false,
   imgHeight = 74,
   padded = true,
+  hasBorder = false,
 }) {
   if (!cardItems || !cardItems.length > 0) return null;
 
@@ -55,6 +56,7 @@ export default function CardGrid({
                     {...cardItem}
                     imgHeight={imgHeight}
                     withShadow={withShadow}
+                    hasBorder={hasBorder}
                   />
                 )}
               </Col>
@@ -73,9 +75,14 @@ function PaddedCardItem({
   footer,
   imgHeight,
   withShadow,
+  hasBorder,
 }) {
   return (
-    <Card className={`py-4 m-3 ${withShadow && "shadow-sm"}`}>
+    <Card
+      className={`py-4 m-3 ${withShadow && "shadow-sm"} ${
+        !hasBorder && "border-0"
+      }`}
+    >
       <Card.Img
         variant="top"
         style={{ padding: "1.25rem", paddingBottom: 0 }}

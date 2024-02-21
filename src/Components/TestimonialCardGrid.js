@@ -12,6 +12,7 @@ const styles = {
   cardGridItem: css({
     margin: "0 0.75rem",
     height: "100%",
+    border: "none",
   }),
 
   cardImage: css({

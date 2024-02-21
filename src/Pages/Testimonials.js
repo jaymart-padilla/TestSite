@@ -1,5 +1,5 @@
 import TopBreadcrumbs from "../Components/TopBreadcrumbs";
-import TestimonialCard from "../Components/TestimonialCard";
+import TestimonialCardGrid from "../Components/TestimonialCardGrid";
 import { testimonials } from "../config/dummy-data";
 import { paths } from "../config/paths";
 
@@ -11,7 +11,7 @@ export default function Testimonials() {
         activeLink={paths.testimonials}
       />
 
-      <TestimonialCard testimonials={testimonials} withShadow />
+      <TestimonialCardGrid testimonials={testimonials} withShadow />
     </div>
   );
 }
