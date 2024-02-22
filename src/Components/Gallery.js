@@ -1,7 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { Container, Nav, Row, Card } from "react-bootstrap";
+import { Container, Nav, Row, Card, Tab } from "react-bootstrap";
 import { galleryItems } from "../config/dummy-data";
+import { useState } from "react";
 
 const styles = {
   galleryNav: css({
@@ -26,37 +27,54 @@ const styles = {
 };
 
 const tabs = [
-  { title: "All", link: "link-1" },
-  { title: "App", link: "link-2" },
-  { title: "Card", link: "link-3" },
-  { title: "Web", link: "link-4" },
+  { title: "All", category: "all", link: "link-1" },
+  { title: "App", category: "app", link: "link-2" },
+  { title: "Card", category: "card", link: "link-3" },
+  { title: "Web", category: "web", link: "link-4" },
 ];
 
 export default function Gallery() {
+  const [activeKey, setActiveKey] = useState(tabs[0].link);
+
   return (
     <Container css={styles} className="my-5">
-      <Nav
-        variant="pills"
-        className="justify-content-center"
-        defaultActiveKey="link-1"
-        css={styles.galleryNav}
+      <Tab.Container
+        activeKey={activeKey}
+        onSelect={(selectedKey) => setActiveKey(selectedKey)}
       >
-        {tabs.map((tab, index) => {
-          return (
-            <Nav.Item css={styles.galleryNavItem} key={index}>
-              <Nav.Link eventKey={tab.link}>{tab.title}</Nav.Link>
-            </Nav.Item>
-          );
-        })}
-      </Nav>
-
-      <Row>
-        <div className="card-columns p-4">
-          {galleryItems.map((galleryItem, index) => {
-            return <GalleryItem key={index} img={galleryItem.img} />;
+        <Nav
+          variant="pills"
+          className="justify-content-center"
+          css={styles.galleryNav}
+        >
+          {/* pills */}
+          {tabs.map((tab, index) => {
+            return (
+              <Nav.Item css={styles.galleryNavItem} key={index}>
+                <Nav.Link eventKey={tab.link}>{tab.title}</Nav.Link>
+              </Nav.Item>
+            );
           })}
-        </div>
-      </Row>
+        </Nav>
+        <Tab.Content>
+          {tabs.map((tab, index) => {
+            return (
+              <Tab.Pane eventKey={tab.link} key={index}>
+                <Row>
+                  <div className="card-columns p-4">
+                    {/* render galleryItems that matched the current category */}
+                    {galleryItems
+                      .find((item) => item.category === tab.category)
+                      .items.map((img, index) => {
+                        return <GalleryItem key={index} img={img} />;
+                      })}
+                  </div>
+                </Row>
+              </Tab.Pane>
+            );
+          })}
+        </Tab.Content>
+      </Tab.Container>
     </Container>
   );
 }

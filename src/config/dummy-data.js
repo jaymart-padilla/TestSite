@@ -94,31 +94,42 @@ export const services = [
 
 export const galleryItems = [
   {
-    img: "/images/gallery/img-1.jpg",
+    category: "all",
+    items: [
+      "/images/gallery/img-1.jpg",
+      "/images/gallery/img-2.jpg",
+      "/images/gallery/img-3.jpg",
+      "/images/gallery/img-4.jpg",
+      "/images/gallery/img-5.jpg",
+      "/images/gallery/img-6.jpg",
+      "/images/gallery/img-7.jpg",
+      "/images/gallery/img-8.jpg",
+      "/images/gallery/img-9.jpg",
+    ],
   },
   {
-    img: "/images/gallery/img-2.jpg",
+    category: "app",
+    items: [
+      "/images/gallery/img-1.jpg",
+      "/images/gallery/img-2.jpg",
+      "/images/gallery/img-3.jpg",
+    ],
   },
   {
-    img: "/images/gallery/img-3.jpg",
+    category: "card",
+    items: [
+      "/images/gallery/img-4.jpg",
+      "/images/gallery/img-5.jpg",
+      "/images/gallery/img-6.jpg",
+    ],
   },
   {
-    img: "/images/gallery/img-4.jpg",
-  },
-  {
-    img: "/images/gallery/img-5.jpg",
-  },
-  {
-    img: "/images/gallery/img-6.jpg",
-  },
-  {
-    img: "/images/gallery/img-7.jpg",
-  },
-  {
-    img: "/images/gallery/img-8.jpg",
-  },
-  {
-    img: "/images/gallery/img-9.jpg",
+    category: "web",
+    items: [
+      "/images/gallery/img-7.jpg",
+      "/images/gallery/img-8.jpg",
+      "/images/gallery/img-9.jpg",
+    ],
   },
 ];
 
