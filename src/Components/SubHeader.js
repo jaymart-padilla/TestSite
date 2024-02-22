@@ -7,7 +7,7 @@ const styles = {
     textTransform: "uppercase",
     fontWeight: "bold",
 
-    "&::after": {
+    "&:after": {
       content: '""',
       position: "absolute",
       bottom: "-0.85rem",

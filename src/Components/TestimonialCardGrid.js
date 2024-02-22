@@ -4,8 +4,6 @@ import { Card, Col, Container, Row } from "react-bootstrap";
 
 const styles = {
   cardGrid: css({
-    backgroundImage:
-      "radial-gradient(circle, rgba(255,255,255) 0%, rgba(238,238,238) 50%, rgba(224,224,224) 100%);",
     padding: "2.75rem 0rem",
   }),
 
@@ -48,7 +46,7 @@ export default function TestimonialCard({
   if (!testimonials || !testimonials.length > 0) return null;
 
   return (
-    <section css={styles.cardGrid}>
+    <section className="section-darken" css={styles.cardGrid}>
       <Container>
         <Row className="no-gutters">
           {testimonials.map((testimonial, index) => {

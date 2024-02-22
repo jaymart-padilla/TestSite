@@ -211,3 +211,74 @@ export const features = [
     img: "<i class='fa-brands fa-rust fa-2x' style='color: #000000;'/>",
   },
 ];
+
+export const faqData = [
+  {
+    question: "Lorem ipsum dolor sit amet?",
+    answer:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas unde accusantium impedit recusandae quis corrupti quia velit fugiat adipisci maxime. Ea dicta quo saepe totam.",
+  },
+  {
+    question: "Lorem ipsum dolor sit amet?",
+    answer:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas unde accusantium impedit recusandae quis corrupti quia velit fugiat adipisci maxime. Ea dicta quo saepe totam.",
+  },
+  {
+    question: "Lorem ipsum dolor sit amet?",
+    answer:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas unde accusantium impedit recusandae quis corrupti quia velit fugiat adipisci maxime. Ea dicta quo saepe totam.",
+  },
+  {
+    question: "Lorem ipsum dolor sit amet?",
+    answer:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas unde accusantium impedit recusandae quis corrupti quia velit fugiat adipisci maxime. Ea dicta quo saepe totam.",
+  },
+  {
+    question: "Lorem ipsum dolor sit amet?",
+    answer:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas unde accusantium impedit recusandae quis corrupti quia velit fugiat adipisci maxime. Ea dicta quo saepe totam.",
+  },
+];
+
+export const pricingCardItems = [
+  {
+    title: "Free",
+    highlight: false,
+    tag: "",
+    pricePerMonth: 0,
+    perks: ["Lorem Ipsum", "Dolor Sit", "Amet Consectetur"],
+  },
+  {
+    title: "Business",
+    highlight: true,
+    tag: "",
+    pricePerMonth: 19,
+    perks: ["Lorem Ipsum", "Dolor Sit", "Amet Consectetur", "Adipisicing Elit"],
+  },
+  {
+    title: "Developer",
+    highlight: false,
+    tag: "",
+    pricePerMonth: 29,
+    perks: [
+      "Lorem Ipsum",
+      "Dolor Sit",
+      "Amet Consectetur",
+      "Adipisicing Elit",
+      "Consectetur Adipisicing",
+    ],
+  },
+  {
+    title: "Ultimate",
+    highlight: false,
+    tag: "Advanced",
+    pricePerMonth: 49,
+    perks: [
+      "Lorem Ipsum",
+      "Dolor Sit",
+      "Amet Consectetur",
+      "Adipisicing Elit",
+      "Consectetur Adipisicing",
+    ],
+  },
+];

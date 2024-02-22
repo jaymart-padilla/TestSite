@@ -36,3 +36,12 @@ a.animated-link:hover:after {
   margin-top: var(--section-gap);
   margin-bottom: var(--section-gap);
 }
+
+.section-darken {
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255) 0%,
+    rgba(238, 238, 238) 50%,
+    rgba(224, 224, 224) 100%
+  );
+}
