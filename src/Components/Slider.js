@@ -30,13 +30,6 @@ const styles = {
       width: "100%",
     },
   }),
-
-  sliderCardButton: css({
-    color: "#ffffff",
-    fontWeight: "bolder",
-    fontSize: "small",
-    padding: "0.5rem 1.75rem",
-  }),
 };
 
 const sliderItems = [
@@ -68,7 +61,7 @@ export default function Slider() {
                   <Button
                     variant="outline-success"
                     size="sm"
-                    css={styles.sliderCardButton}
+                    className="accent-button"
                   >
                     Read More
                   </Button>

@@ -33,7 +33,7 @@ const styles = {
   }),
 
   quoteMarks: css({
-    color: "var(--dark-muted)",
+    color: "var(--gray-muted)",
   }),
 };
 

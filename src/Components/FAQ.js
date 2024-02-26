@@ -18,7 +18,7 @@ const styles = {
       width: "100%",
       margin: "0 auto",
       backgroundColor: "white",
-      border: "1px solid var(--dark-muted)",
+      border: "1px solid var(--gray-muted)",
     },
 
     ".accordion-header": {

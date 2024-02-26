@@ -293,3 +293,115 @@ export const pricingCardItems = [
     ],
   },
 ];
+
+export const blogData = [
+  {
+    title:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, odio",
+    author: "John Doe",
+    date: new Date(2024, 0, 1),
+    comments: 12,
+    img: "/images/blog/img-2.jpg",
+    contentPreview:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias voluptatum pariatur cupiditate quaerat error tempore laborum libero aliquam magnam unde possimus vel corrupti modi odit, similique quo voluptatem eius aperiam soluta veniam in obcaecati natus. Nostrum, commodi molestias quod id nobis similique inventore dolores nisi ratione magni, sed quos maiores.",
+  },
+  {
+    title:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, odio",
+    author: "John Doe",
+    date: new Date(2024, 0, 1),
+    comments: 12,
+    img: "/images/blog/img-1.jpg",
+    contentPreview:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias voluptatum pariatur cupiditate quaerat error tempore laborum libero aliquam magnam unde possimus vel corrupti modi odit, similique quo voluptatem eius aperiam soluta veniam in obcaecati natus. Nostrum, commodi molestias quod id nobis similique inventore dolores nisi ratione magni, sed quos maiores.",
+  },
+  {
+    title:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, odio",
+    author: "John Doe",
+    date: new Date(2024, 0, 1),
+    comments: 12,
+    img: "/images/blog/img-3.jpg",
+    contentPreview:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias voluptatum pariatur cupiditate quaerat error tempore laborum libero aliquam magnam unde possimus vel corrupti modi odit, similique quo voluptatem eius aperiam soluta veniam in obcaecati natus. Nostrum, commodi molestias quod id nobis similique inventore dolores nisi ratione magni, sed quos maiores.",
+  },
+  {
+    title:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, odio",
+    author: "John Doe",
+    date: new Date(2024, 0, 1),
+    comments: 12,
+    img: "/images/blog/img-4.jpg",
+    contentPreview:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias voluptatum pariatur cupiditate quaerat error tempore laborum libero aliquam magnam unde possimus vel corrupti modi odit, similique quo voluptatem eius aperiam soluta veniam in obcaecati natus. Nostrum, commodi molestias quod id nobis similique inventore dolores nisi ratione magni, sed quos maiores.",
+  },
+];
+
+export const blogCategories = [
+  {
+    title: "General",
+    count: 25,
+  },
+  {
+    title: "Lifestyle",
+    count: 12,
+  },
+  {
+    title: "Travel",
+    count: 5,
+  },
+  {
+    title: "Design",
+    count: 22,
+  },
+  {
+    title: "Creative",
+    count: 8,
+  },
+  {
+    title: "Education",
+    count: 14,
+  },
+];
+
+export const blogRecentPosts = [
+  {
+    img: "/images/blog/img-1.jpg",
+    title: "Lorem ipsum dolor sit amet.",
+    date: new Date(2024, 0, 1),
+  },
+  {
+    img: "/images/blog/img-2.jpg",
+    title: "Lorem ipsum dolor sit amet.",
+    date: new Date(2024, 0, 1),
+  },
+  {
+    img: "/images/blog/img-3.jpg",
+    title: "Lorem ipsum dolor sit amet.",
+    date: new Date(2024, 0, 1),
+  },
+  {
+    img: "/images/blog/img-4.jpg",
+    title: "Lorem ipsum dolor sit amet.",
+    date: new Date(2024, 0, 1),
+  },
+  {
+    img: "/images/blog/img-5.jpg",
+    title: "Lorem ipsum dolor sit amet.",
+    date: new Date(2024, 0, 1),
+  },
+];
+
+export const blogTags = [
+  "App",
+  "IT",
+  "Business",
+  "Mac",
+  "Design",
+  "Office",
+  "Creative",
+  "Studio",
+  "Smart",
+  "Tips",
+  "Marketing",
+];

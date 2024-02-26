@@ -15,6 +15,7 @@ import Pricing from "./Pages/Pricing";
 import Contact from "./Pages/Contact";
 import { paths } from "./config/paths";
 import "./assets/css/app.css";
+import BlogIndex from "./Pages/BlogIndex";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
         <Route path={paths.services.url} element={<Services />} />
         <Route path={paths.pricing.url} element={<Pricing />} />
         <Route path={paths.contact.url} element={<Contact />} />
+        <Route path={paths.blog.url} element={<BlogIndex />} />
       </Route>
     </Route>
   )

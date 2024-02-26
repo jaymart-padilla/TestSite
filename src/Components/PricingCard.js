@@ -96,13 +96,6 @@ const styles = {
     textDecoration: "line-through",
   }),
 
-  pricingCardButton: css({
-    color: "#ffffff",
-    fontWeight: 500,
-    fontSize: "small",
-    padding: "0.5rem 1.75rem",
-  }),
-
   pricingCardInnerBorder: css({
     border: "none",
     padding: "1rem",
@@ -189,7 +182,7 @@ function PricingCardItem({
         ))}
       </Card.Body>
       <Card.Footer className="text-muted" css={styles.pricingCardInnerBorder}>
-        <Button variant="success" css={styles.pricingCardButton}>
+        <Button variant="success" className="accent-button">
           Buy Now
         </Button>
       </Card.Footer>

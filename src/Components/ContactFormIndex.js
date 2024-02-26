@@ -45,13 +45,6 @@ const styles = {
   contactFormInput: css({
     fontSize: "small",
   }),
-
-  contactFormButton: css({
-    color: "#ffffff",
-    fontWeight: 500,
-    fontSize: "small",
-    padding: "0.5rem 1.75rem",
-  }),
 };
 
 export default function ContactFormIndex() {
@@ -141,10 +134,9 @@ function ContactForm() {
         />
       </Form.Group>
       <Button
-        className="d-block mx-auto"
+        className="d-block mx-auto accent-button"
         variant="success"
         type="submit"
-        css={styles.contactFormButton}
       >
         Send Message
       </Button>
