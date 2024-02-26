@@ -17,6 +17,7 @@ import {
   blogRecentPosts,
   blogTags,
 } from "../config/dummy-data";
+import { paths } from "../config/paths";
 
 const styles = {
   blogCard: css({ marginBottom: "2.75rem" }),
@@ -46,6 +47,10 @@ const styles = {
     fontSize: "0.85rem",
     color: "#555",
     wordSpacing: "0.175ch",
+  }),
+
+  blogCardButton: css({
+    width: "fit-content",
   }),
 
   blogPagination: css({
@@ -136,7 +141,7 @@ export default function Blog() {
       <Row>
         <Col xs={{ order: 2, span: 12 }} lg={{ order: 1, span: 8 }}>
           {blogData.map((blog, index) => (
-            <BlogCard {...blog} key={index} />
+            <BlogCard {...blog} key={blog.id || index} />
           ))}
           <BlogPagination />
         </Col>
@@ -148,7 +153,7 @@ export default function Blog() {
   );
 }
 
-function BlogCard({ title, author, date, comments, img, contentPreview }) {
+function BlogCard({ id, title, author, date, comments, img, contentPreview }) {
   const formattedDate = formatDate(date);
 
   return (
@@ -179,8 +184,10 @@ function BlogCard({ title, author, date, comments, img, contentPreview }) {
           {contentPreview}
         </Card.Text>
         <Button
+          href={`${paths.blog.url}/${id}`}
           variant="success"
           className="d-block ml-auto accent-button py-1 px-3 font-weight-normal"
+          css={styles.blogCardButton}
         >
           Read More
         </Button>

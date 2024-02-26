@@ -22,11 +22,15 @@ const styles = {
 };
 
 export default function TopBreadcrumbs({ links, activeLink }) {
+  const maxLetters = 20;
+  console.log(activeLink.url);
   return (
     <Container fluid css={styles.breadcrumbs}>
       <Container className="d-flex align-items-center justify-content-between p-2">
         <h5 className="m-0">
-          <a href={activeLink.url}>{activeLink.text}</a>
+          <a href={activeLink.url}>
+            {truncateText(activeLink.text, maxLetters)}
+          </a>
         </h5>
         <Breadcrumb>
           {links.map((link, index) => (
@@ -35,11 +39,15 @@ export default function TopBreadcrumbs({ links, activeLink }) {
               href={link.url}
               active={link.url === activeLink.url}
             >
-              {link.text}
+              {truncateText(link.text, maxLetters)}
             </Breadcrumb.Item>
           ))}
         </Breadcrumb>
       </Container>
     </Container>
   );
+}
+
+function truncateText(text = "", length) {
+  return text.length > length ? text.slice(0, length) + "..." : text;
 }

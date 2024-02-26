@@ -296,6 +296,7 @@ export const pricingCardItems = [
 
 export const blogData = [
   {
+    id: 1,
     title:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, odio",
     author: "John Doe",
@@ -306,6 +307,7 @@ export const blogData = [
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias voluptatum pariatur cupiditate quaerat error tempore laborum libero aliquam magnam unde possimus vel corrupti modi odit, similique quo voluptatem eius aperiam soluta veniam in obcaecati natus. Nostrum, commodi molestias quod id nobis similique inventore dolores nisi ratione magni, sed quos maiores.",
   },
   {
+    id: 2,
     title:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, odio",
     author: "John Doe",
@@ -316,6 +318,7 @@ export const blogData = [
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias voluptatum pariatur cupiditate quaerat error tempore laborum libero aliquam magnam unde possimus vel corrupti modi odit, similique quo voluptatem eius aperiam soluta veniam in obcaecati natus. Nostrum, commodi molestias quod id nobis similique inventore dolores nisi ratione magni, sed quos maiores.",
   },
   {
+    id: 3,
     title:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, odio",
     author: "John Doe",
@@ -326,6 +329,7 @@ export const blogData = [
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias voluptatum pariatur cupiditate quaerat error tempore laborum libero aliquam magnam unde possimus vel corrupti modi odit, similique quo voluptatem eius aperiam soluta veniam in obcaecati natus. Nostrum, commodi molestias quod id nobis similique inventore dolores nisi ratione magni, sed quos maiores.",
   },
   {
+    id: 4,
     title:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, odio",
     author: "John Doe",

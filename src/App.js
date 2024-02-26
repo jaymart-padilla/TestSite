@@ -13,9 +13,10 @@ import Testimonials from "./Pages/Testimonials";
 import Services from "./Pages/Services";
 import Pricing from "./Pages/Pricing";
 import Contact from "./Pages/Contact";
+import BlogIndex from "./Pages/BlogIndex";
+import BlogSingle from "./Pages/BlogSingle";
 import { paths } from "./config/paths";
 import "./assets/css/app.css";
-import BlogIndex from "./Pages/BlogIndex";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,6 +30,7 @@ const router = createBrowserRouter(
         <Route path={paths.pricing.url} element={<Pricing />} />
         <Route path={paths.contact.url} element={<Contact />} />
         <Route path={paths.blog.url} element={<BlogIndex />} />
+        <Route path={paths.blog.url + "/:id"} element={<BlogSingle />} />
       </Route>
     </Route>
   )
