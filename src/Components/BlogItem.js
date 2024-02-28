@@ -1,13 +1,15 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import BlogSidebar from "./BlogSidebar";
 import { formatDate } from "../utils/formateDate";
 import { useEffect, useState } from "react";
 import BlogMarkdownLayout from "../Layouts/BlogMarkdownLayout";
+import BlogComment from "./BlogComment";
+import { blogComment } from "../config/dummy-data";
 
 const styles = {
-  blogCard: css({ marginBottom: "2.75rem" }),
+  blogCard: css({ marginBottom: "2rem" }),
 
   blogCardTitle: css({
     fontSize: "1.5rem",
@@ -32,6 +34,47 @@ const styles = {
     wordSpacing: "0.175ch",
     paddingBottom: "0.5rem",
   }),
+
+  blogProfileCardGridItem: css({
+    fontWeight: 500,
+  }),
+
+  blogProfileCardGridItemContainer: css({
+    gap: "1.125rem",
+  }),
+
+  blogProfileCardItemName: css({
+    fontSize: "1.175rem",
+    margin: 0,
+  }),
+
+  blogProfileCardItemSocialIcons: css({
+    color: "gray",
+    marginBottom: "0.75rem",
+
+    display: "flex",
+    gap: "0.75rem",
+  }),
+
+  blogProfileCardItemText: css({
+    color: "#aaa",
+    fontWeight: 500,
+    fontSize: "0.825rem",
+  }),
+
+  blogComment: css({
+    fontWeight: 500,
+    marginBottom: "1.25rem",
+    marginTop: "1.25rem",
+  }),
+
+  blogLeaveReplyForm: css({
+    marginTop: "1.25rem",
+  }),
+
+  blogLeaveReplyFormInput: css({
+    fontSize: "small",
+  }),
 };
 
 export default function BlogItem({ blog }) {
@@ -40,6 +83,9 @@ export default function BlogItem({ blog }) {
       <Row>
         <Col xs={{ order: 2, span: 12 }} lg={{ order: 1, span: 8 }}>
           <BlogCard {...blog} />
+          <ProfileCard />
+          <BlogComments />
+          <BlogLeaveReplyForm />
         </Col>
         <Col xs={{ order: 1, span: 12 }} lg={{ order: 2, span: 4 }}>
           <BlogSidebar />
@@ -49,7 +95,7 @@ export default function BlogItem({ blog }) {
   );
 }
 
-function BlogCard({ id, title, author, date, comments, img, content, tags }) {
+function BlogCard({ title, author, date, comments, img, content, tags }) {
   const formattedDate = formatDate(date);
 
   const [blogContent, setBlogContent] = useState("");
@@ -106,23 +152,28 @@ function BlogCard({ id, title, author, date, comments, img, content, tags }) {
 }
 
 function ProfileCard() {
-  const imgPxSize = 74;
+  const imgPxSize = 94;
   const name = "Jane Smith";
   const img = "/images/testimonials/img-2.jpg";
-  const withShadow = false;
+  const withShadow = true;
   const text =
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati eos possimus consequuntur corporis, fugiat atque ut facere quod adipisci assumenda.";
 
   return (
     <Card
-      className={`px-3 ${withShadow && "shadow-sm"}`}
-      css={styles.cardGridItem}
+      className={`border-top border-bottom-0 border-left-0 border-right-0 px-3 ${
+        withShadow && "shadow-sm"
+      }`}
+      css={styles.blogProfileCardGridItem}
     >
-      <Card.Body>
+      <Card.Body
+        className="d-flex px-4"
+        css={styles.blogProfileCardGridItemContainer}
+      >
         <img
           src={img}
           alt={name}
-          className="d-block rounded-circle mr-1 float-left normalized-image"
+          className="d-block rounded-circle normalized-image align-self-center"
           width={imgPxSize}
           height={imgPxSize}
           style={{
@@ -132,21 +183,91 @@ function ProfileCard() {
             minHeight: imgPxSize,
           }}
         />
-        <div className="d-flex flex-column align-items-start pl-2 pb-3">
-          <strong css={styles.title}>{name}</strong>
+        <div>
+          <p css={styles.blogProfileCardItemName}>{name}</p>
+          <div
+            className="mt-1 mb-2"
+            css={styles.blogProfileCardItemSocialIcons}
+          >
+            <i className="fa-brands fa-twitter" />
+            <i className="fa-brands fa-facebook" />
+            <i className="fa-brands fa-instagram" />
+          </div>
+          <em css={styles.blogProfileCardItemText}>{text}</em>
         </div>
-        <p css={styles.quote} className="text-left">
-          <i
-            className="fa-solid fa-quote-left fa-2xl pr-2"
-            css={styles.quoteMarks}
-          />
-          {text}
-          <i
-            className="fa-solid fa-quote-right fa-2xl pl-2"
-            css={styles.quoteMarks}
-          />
-        </p>
       </Card.Body>
     </Card>
+  );
+}
+
+function BlogComments() {
+  //
+  // will be handled differently on full stack (each reply to a comment will add a dynamic insertion // adding a padding to its left)
+  //
+  return (
+    <div className="overflow-auto">
+      <h5 css={styles.blogComment}>8 Comments</h5>
+      <div>
+        <BlogComment {...blogComment} />
+      </div>
+      <div>
+        <BlogComment {...blogComment} />
+        <div className="pl-4">
+          <BlogComment {...blogComment} />
+        </div>
+        <div className="pl-5">
+          <BlogComment {...blogComment} />
+        </div>
+      </div>
+      <div>
+        <BlogComment {...blogComment} />
+      </div>
+    </div>
+  );
+}
+
+function BlogLeaveReplyForm() {
+  return (
+    <Form
+      className="p-4 shadow-sm border border-bottom-0"
+      css={styles.blogLeaveReplyForm}
+    >
+      <h5 className="font-weight-bold">Leave a Reply</h5>
+      <small className="d-block mt-2 mb-3">
+        Your email address will not be published. Required fields are marked *
+      </small>
+      <Row>
+        <Form.Group as={Col} controlId="name" className="mb-3">
+          <Form.Control
+            placeholder="Your Name*"
+            css={styles.blogLeaveReplyFormInput}
+          />
+        </Form.Group>
+        <Form.Group as={Col} controlId="email" className="mb-3">
+          <Form.Control
+            type="email"
+            placeholder="Your Email*"
+            css={styles.blogLeaveReplyFormInput}
+          />
+        </Form.Group>
+      </Row>
+      <Form.Group controlId="subject" className="mb-3">
+        <Form.Control
+          placeholder="Your Website"
+          css={styles.blogLeaveReplyFormInput}
+        />
+      </Form.Group>
+      <Form.Group controlId="message" className="mb-3">
+        <Form.Control
+          as="textarea"
+          placeholder="Your Comment*"
+          rows={3}
+          css={styles.blogLeaveReplyFormInput}
+        />
+      </Form.Group>
+      <Button className="d-block accent-button" variant="dark" type="submit">
+        Send Message
+      </Button>
+    </Form>
   );
 }

@@ -379,3 +379,12 @@ export const blogData = [
     tags: [blogTags[9], blogTags[10]],
   },
 ];
+
+export const blogComment = {
+  id: 1,
+  name: "John Doe",
+  date: new Date(2024, 0, 1),
+  img: "/images/testimonials/img-2.jpg",
+  comment:
+    "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas unde accusantium impedit recusandae quis corrupti quia velit fugiat adipisci maxime. Ea dicta quo saepe totam.",
+};
