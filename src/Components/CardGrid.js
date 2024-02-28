@@ -7,13 +7,6 @@ const styles = {
   cardGrid: css({
     padding: "2.75rem 0rem",
   }),
-
-  cardImage: css({
-    objectFit: "cover",
-    backgroundPosition: "center",
-    backgroundSize: "contain",
-    backgroundRepeat: "no-repeat",
-  }),
 };
 
 export default function CardGrid({
@@ -109,7 +102,7 @@ function CardItem({ title, description, img, footer, imgHeight, withShadow }) {
         src={img}
         alt={title}
         height={imgHeight}
-        css={styles.cardImage}
+        className="normalized-image"
       />
       <Card.Body>
         {title && <Card.Title>{title}</Card.Title>}

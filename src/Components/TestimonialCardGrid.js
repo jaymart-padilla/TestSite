@@ -13,13 +13,6 @@ const styles = {
     border: "none",
   }),
 
-  cardImage: css({
-    objectFit: "cover",
-    backgroundPosition: "center",
-    backgroundSize: "contain",
-    backgroundRepeat: "no-repeat",
-  }),
-
   title: css({
     fontWeight: 500,
   }),
@@ -84,10 +77,9 @@ function CardItem({ name, title, img, text, imgPxSize, withShadow }) {
         <img
           src={img}
           alt={title}
-          className="d-block rounded-circle mr-1 float-left"
+          className="d-block rounded-circle mr-1 float-left normalized-image"
           width={imgPxSize}
           height={imgPxSize}
-          css={styles.cardImage}
           style={{
             maxWidth: imgPxSize,
             maxHeight: imgPxSize,

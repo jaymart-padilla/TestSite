@@ -19,6 +19,9 @@ export default defineConfig({
     react(),
   ],
 
+  // enable markdown
+  assetsInclude: ["**/*.md"],
+
   optimizeDeps: {
     force: true,
     esbuildOptions: {

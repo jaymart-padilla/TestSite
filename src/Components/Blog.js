@@ -24,10 +24,6 @@ const styles = {
 
   blogCardImage: css({
     height: "300px",
-    objectFit: "cover",
-    backgroundPosition: "center",
-    backgroundSize: "contain",
-    backgroundRepeat: "no-repeat",
   }),
 
   blogCardContentPreview: css({
@@ -95,6 +91,7 @@ function BlogCard({ id, title, author, date, comments, img, contentPreview }) {
         variant="top"
         src={img}
         alt={`${author}'s Blog: ${title}`}
+        className="normalized-image"
         css={styles.blogCardImage}
       />
       <Card.Body className="px-4">

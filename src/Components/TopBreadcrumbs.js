@@ -23,12 +23,16 @@ const styles = {
 
 export default function TopBreadcrumbs({ links, activeLink }) {
   const maxLetters = 20;
-  console.log(activeLink.url);
+
   return (
     <Container fluid css={styles.breadcrumbs}>
       <Container className="d-flex align-items-center justify-content-between p-2">
         <h5 className="m-0">
-          <a href={activeLink.url}>
+          <a
+            href={activeLink.url}
+            data-toggle="tooltip"
+            title={activeLink.text || ""}
+          >
             {truncateText(activeLink.text, maxLetters)}
           </a>
         </h5>

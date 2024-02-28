@@ -21,7 +21,7 @@ export default function BlogSingle() {
         links={[paths.home, paths.blog, currentPath]}
         activeLink={currentPath}
       />
-      <BlogItem />
+      <BlogItem blog={currentBlog} />
     </div>
   );
 }

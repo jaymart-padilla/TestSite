@@ -10,6 +10,7 @@ const styles = {
     "&:after": {
       content: '""',
       position: "absolute",
+
       bottom: "-0.85rem",
       left: "50%",
       right: "50%",

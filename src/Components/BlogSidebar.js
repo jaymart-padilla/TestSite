@@ -1,12 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { Button, Form, FormControl, InputGroup } from "react-bootstrap";
-import {
-  blogCategories,
-  blogRecentPosts,
-  blogTags,
-} from "../config/dummy-data";
+import { blogCategories, blogData, blogTags } from "../config/dummy-data";
 import { formatDate } from "../utils/formateDate";
+import { paths } from "../config/paths";
 
 const styles = {
   blogSidebar: css({
@@ -123,22 +120,25 @@ function RecentPostSection() {
     <div>
       <div css={styles.blogSidebarSectionTitle}>Recent Posts</div>
       <div css={styles.blogSidebarRecentPostContainer}>
-        {blogRecentPosts.map((blogRecentPost, index) => {
-          const formattedDate = formatDate(blogRecentPost.date);
+        {blogData.map((blog, index) => {
+          const formattedDate = formatDate(blog.date);
           return (
             <div key={index} css={styles.blogSidebarRecentPost}>
-              <a href="#">
+              <a href={`${paths.blog.url}/${blog.id}`}>
                 <img
-                  className="normalized-image"
-                  src={blogRecentPost.img}
-                  alt={blogRecentPost.title}
+                  className="normalized-image mt-1"
+                  src={blog.img}
+                  alt={blog.title}
                   width={75}
                   height={50}
                 />
               </a>
               <div className="d-flex flex-column">
-                <a href="#" css={styles.blogSidebarRecentPostTitle}>
-                  {blogRecentPost.title}
+                <a
+                  href={`${paths.blog.url}/${blog.id}`}
+                  css={styles.blogSidebarRecentPostTitle}
+                >
+                  {blog.title}
                 </a>
                 <span className="text-secondary font-weight-normal">
                   <small className="font-italic">{formattedDate}</small>
