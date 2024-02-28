@@ -344,7 +344,7 @@ export const blogData = [
     date: new Date(2024, 0, 1),
     comments: 12,
     img: "/images/blog/img-2.jpg",
-    content: "../markdown/blog-1.md",
+    content: "../assets/markdown/blog-1.md",
     tags: [blogTags[0], blogTags[1], blogTags[2]],
   },
   {
@@ -354,7 +354,7 @@ export const blogData = [
     date: new Date(2024, 0, 1),
     comments: 12,
     img: "/images/blog/img-1.jpg",
-    content: "../markdown/blog-2.md",
+    content: "../assets/markdown/blog-2.md",
     tags: [blogTags[3], blogTags[4], blogTags[5]],
   },
   {
@@ -365,7 +365,7 @@ export const blogData = [
     date: new Date(2024, 0, 1),
     comments: 12,
     img: "/images/blog/img-3.jpg",
-    content: "../markdown/blog-3.md",
+    content: "../assets/markdown/blog-3.md",
     tags: [blogTags[6], blogTags[7], blogTags[8]],
   },
   {
@@ -375,7 +375,7 @@ export const blogData = [
     date: new Date(2024, 0, 1),
     comments: 12,
     img: "/images/blog/img-4.jpg",
-    content: "../markdown/blog-4.md",
+    content: "../assets/markdown/blog-4.md",
     tags: [blogTags[9], blogTags[10]],
   },
 ];

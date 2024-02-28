@@ -104,3 +104,49 @@ function BlogCard({ id, title, author, date, comments, img, content, tags }) {
     </Card>
   );
 }
+
+function ProfileCard() {
+  const imgPxSize = 74;
+  const name = "Jane Smith";
+  const img = "/images/testimonials/img-2.jpg";
+  const withShadow = false;
+  const text =
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati eos possimus consequuntur corporis, fugiat atque ut facere quod adipisci assumenda.";
+
+  return (
+    <Card
+      className={`px-3 ${withShadow && "shadow-sm"}`}
+      css={styles.cardGridItem}
+    >
+      <Card.Body>
+        <img
+          src={img}
+          alt={name}
+          className="d-block rounded-circle mr-1 float-left normalized-image"
+          width={imgPxSize}
+          height={imgPxSize}
+          style={{
+            maxWidth: imgPxSize,
+            maxHeight: imgPxSize,
+            minWidth: imgPxSize,
+            minHeight: imgPxSize,
+          }}
+        />
+        <div className="d-flex flex-column align-items-start pl-2 pb-3">
+          <strong css={styles.title}>{name}</strong>
+        </div>
+        <p css={styles.quote} className="text-left">
+          <i
+            className="fa-solid fa-quote-left fa-2xl pr-2"
+            css={styles.quoteMarks}
+          />
+          {text}
+          <i
+            className="fa-solid fa-quote-right fa-2xl pl-2"
+            css={styles.quoteMarks}
+          />
+        </p>
+      </Card.Body>
+    </Card>
+  );
+}
