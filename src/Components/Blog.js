@@ -5,6 +5,8 @@ import { blogData } from "../config/dummy-data";
 import { paths } from "../config/paths";
 import { formatDate } from "../utils/formateDate";
 import BlogSidebar from "./BlogSidebar";
+import BlogMarkdownLayout from "../Layouts/BlogMarkdownLayout";
+import { useEffect, useState } from "react";
 
 const styles = {
   blogCard: css({ marginBottom: "2.75rem" }),
@@ -34,6 +36,7 @@ const styles = {
 
   blogCardButton: css({
     width: "fit-content",
+    marginTop: "0.75rem",
   }),
 
   blogPagination: css({
@@ -82,8 +85,31 @@ export default function Blog() {
   );
 }
 
-function BlogCard({ id, title, author, date, comments, img, contentPreview }) {
+function BlogCard({ id, title, author, date, comments, img, content }) {
   const formattedDate = formatDate(date);
+
+  const blogContentPreviewMaxLength = 375;
+
+  // truncate blog content for preview
+
+  const [blogContent, setBlogContent] = useState("");
+
+  useEffect(() => {
+    import(content)
+      .then((res) => {
+        fetch(res.default)
+          .then((res) => res.text())
+          .then((res) => {
+            const truncatedContent = res.substring(
+              0,
+              blogContentPreviewMaxLength
+            );
+            setBlogContent(truncatedContent + "...");
+          })
+          .catch((err) => console.log(err));
+      })
+      .catch((err) => console.log(err));
+  });
 
   return (
     <Card css={styles.blogCard}>
@@ -110,9 +136,23 @@ function BlogCard({ id, title, author, date, comments, img, contentPreview }) {
             {comments} comments
           </small>
         </Card.Text>
-        <Card.Text css={styles.blogCardContentPreview}>
-          {contentPreview}
-        </Card.Text>
+        <BlogMarkdownLayout
+          overrides={{
+            // overrides layout default components
+            h1: ({ children, ...props }) => <h5 {...props}>{children}</h5>,
+            h2: ({ children, ...props }) => (
+              <h6 {...props}>
+                <em>{children}</em>
+              </h6>
+            ),
+            h3: ({ children, ...props }) => <h6 {...props}>{children}</h6>,
+            h4: ({ children, ...props }) => <h6 {...props}>{children}</h6>,
+            h5: ({ children, ...props }) => <h6 {...props}>{children}</h6>,
+          }}
+          css={styles.blogCardContentPreview}
+        >
+          {blogContent}
+        </BlogMarkdownLayout>
         <Button
           href={`${paths.blog.url}/${id}`}
           variant="success"

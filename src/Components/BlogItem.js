@@ -3,8 +3,8 @@ import { css } from "@emotion/react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import BlogSidebar from "./BlogSidebar";
 import { formatDate } from "../utils/formateDate";
-import Markdown from "markdown-to-jsx";
 import { useEffect, useState } from "react";
+import BlogMarkdownLayout from "../Layouts/BlogMarkdownLayout";
 
 const styles = {
   blogCard: css({ marginBottom: "2.75rem" }),
@@ -30,27 +30,7 @@ const styles = {
     color: "#555",
     fontSize: "0.85rem",
     wordSpacing: "0.175ch",
-  }),
-
-  blogCardJumbotron: css({
-    position: "relative",
-    color: "#444",
-    fontSize: "1.25rem",
-    fontWeight: 500,
-    wordSpacing: "0.175ch",
-
-    "::before": {
-      content: '""',
-      position: "absolute",
-
-      backgroundColor: "var(--accent-color)",
-      width: "0.25rem",
-      height: "90%",
-      left: 0,
-      top: "50%",
-      bottom: "50%",
-      transform: "translateY(-50%)",
-    },
+    paddingBottom: "0.5rem",
   }),
 };
 
@@ -110,23 +90,10 @@ function BlogCard({ id, title, author, date, comments, img, content, tags }) {
             {comments} comments
           </small>
         </Card.Text>
-        <Markdown
-          css={styles.blogCardContent}
-          options={{
-            wrapper: "article",
-            overrides: {
-              h2: {
-                component: ArticleJumbotron,
-              },
-              img: {
-                component: ArticleImage,
-                props: { className: "normalized-image" },
-              },
-            },
-          }}
-        >
+        <BlogMarkdownLayout css={styles.blogCardContent}>
           {blogContent}
-        </Markdown>
+        </BlogMarkdownLayout>
+
         <Card.Text css={styles.blogCardMetaData} className="border-top pt-2">
           <small>
             <i className="fa-solid fa-tags mr-2" />
@@ -136,19 +103,4 @@ function BlogCard({ id, title, author, date, comments, img, content, tags }) {
       </Card.Body>
     </Card>
   );
-}
-
-function ArticleJumbotron({ children }) {
-  return (
-    <Container
-      className="p-5 mb-3 bg-light rounded-3"
-      css={styles.blogCardJumbotron}
-    >
-      <em>{children}</em>
-    </Container>
-  );
-}
-
-export function ArticleImage({ ...props }) {
-  return <img {...props} width="100%" />;
 }
