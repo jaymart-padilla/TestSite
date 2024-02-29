@@ -5,14 +5,14 @@ import { services } from "../config/dummy-data";
 import { paths } from "../config/paths";
 
 export default function Services() {
-  return (
-    <div className="flex-grow-1">
-      <TopBreadcrumbs
-        links={[paths.home, paths.services]}
-        activeLink={paths.services}
-      />
-      <CardGrid cardItems={services} />
-      <FeatureCardGrid />
-    </div>
-  );
+    return (
+        <div className="flex-grow-1">
+            <TopBreadcrumbs
+                links={[paths.home, paths.services]}
+                activeLink={paths.services}
+            />
+            <CardGrid cardItems={services} />
+            <FeatureCardGrid />
+        </div>
+    );
 }

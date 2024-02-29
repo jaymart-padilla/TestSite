@@ -1,8 +1,8 @@
 import {
-  Route,
-  RouterProvider,
-  createBrowserRouter,
-  createRoutesFromElements,
+    Route,
+    RouterProvider,
+    createBrowserRouter,
+    createRoutesFromElements,
 } from "react-router-dom";
 import IndexLayout from "./Layouts/IndexLayout";
 import ErrorPage from "./Pages/ErrorPage";
@@ -19,25 +19,31 @@ import { paths } from "./config/paths";
 import "./assets/css/app.css";
 
 const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<IndexLayout />} errorElement={<ErrorPage />}>
-      <Route errorElement={<ErrorPage />}>
-        <Route index element={<Index />} />
-        <Route path={paths.about.url} element={<About />} />
-        <Route path={paths.team.url} element={<Team />} />
-        <Route path={paths.testimonials.url} element={<Testimonials />} />
-        <Route path={paths.services.url} element={<Services />} />
-        <Route path={paths.pricing.url} element={<Pricing />} />
-        <Route path={paths.contact.url} element={<Contact />} />
-        <Route path={paths.blog.url} element={<BlogIndex />} />
-        <Route path={paths.blog.url + "/:id"} element={<BlogSingle />} />
-      </Route>
-    </Route>
-  )
+    createRoutesFromElements(
+        <Route path="/" element={<IndexLayout />} errorElement={<ErrorPage />}>
+            <Route errorElement={<ErrorPage />}>
+                <Route index element={<Index />} />
+                <Route path={paths.about.url} element={<About />} />
+                <Route path={paths.team.url} element={<Team />} />
+                <Route
+                    path={paths.testimonials.url}
+                    element={<Testimonials />}
+                />
+                <Route path={paths.services.url} element={<Services />} />
+                <Route path={paths.pricing.url} element={<Pricing />} />
+                <Route path={paths.contact.url} element={<Contact />} />
+                <Route path={paths.blog.url} element={<BlogIndex />} />
+                <Route
+                    path={paths.blog.url + "/:id"}
+                    element={<BlogSingle />}
+                />
+            </Route>
+        </Route>
+    )
 );
 
 function App() {
-  return <RouterProvider router={router} />;
+    return <RouterProvider router={router} />;
 }
 
 export default App;

@@ -6,13 +6,13 @@ import Slider from "../Components/Slider";
 import { services } from "../config/dummy-data";
 
 export default function Index() {
-  return (
-    <div className="flex-grow-1">
-      <Slider />
-      <Banner />
-      <CardGrid cardItems={services} />
-      <Gallery />
-      <Clients />
-    </div>
-  );
+    return (
+        <div className="flex-grow-1">
+            <Slider />
+            <Banner />
+            <CardGrid cardItems={services} />
+            <Gallery />
+            <Clients />
+        </div>
+    );
 }
