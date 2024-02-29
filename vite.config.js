@@ -1,8 +1,13 @@
 import { defineConfig, transformWithEsbuild } from "vite";
-import react from "@vitejs/plugin-react-swc";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
     plugins: [
+        react({
+            babel: {
+                plugins: ["styled-jsx/babel"],
+            },
+        }),
         {
             name: "treat-js-files-as-jsx",
             async transform(code, id) {
@@ -16,7 +21,6 @@ export default defineConfig({
                 });
             },
         },
-        react(),
     ],
 
     // enable markdown
