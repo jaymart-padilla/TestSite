@@ -18,6 +18,10 @@ const styles = {
         ".breadcrumb-item.active": {
             color: "var(--light-muted)",
         },
+
+        "ol.breadcrumb": {
+            padding: "0.75rem 0",
+        },
     }),
 };
 
@@ -26,7 +30,7 @@ export default function TopBreadcrumbs({ links, activeLink }) {
 
     return (
         <Container fluid css={styles.breadcrumbs}>
-            <Container className="d-flex align-items-center justify-content-between p-2">
+            <Container className="d-flex align-items-center justify-content-between py-2 px-3">
                 <h5 className="m-0">
                     <a
                         href={activeLink.url}

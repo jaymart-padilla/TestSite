@@ -5,6 +5,18 @@ import { paths } from "../config/paths";
 import { socialLinks } from "../config/social-links";
 
 const styles = {
+    navbar: {
+        padding: "0.5rem 0",
+
+        "@media (max-width: 992px)": {
+            padding: "0.5rem 1rem",
+        },
+    },
+
+    navbarBrand: css({
+        fontSize: "1.5rem",
+    }),
+
     navContainer: css({
         fontSize: "small",
 
@@ -15,17 +27,23 @@ const styles = {
             fontSize: "small",
             fontWeight: 500,
         },
+
+        "a.dropdown-toggle.nav-link": {
+            color: "inherit",
+        },
     }),
 
-    navbarBrand: css({
-        fontSize: "1.5rem",
+    navbarSocialIcons: css({
+        "@media (max-width: 992px)": {
+            gap: "1.25rem",
+        },
     }),
 };
 
 export default function TopNav() {
     return (
         <Container>
-            <Navbar collapseOnSelect expand="lg">
+            <Navbar collapseOnSelect expand="lg" css={styles.navbar}>
                 <Navbar.Brand
                     href={paths.home.url}
                     className="text-uppercase font-weight-bold"
@@ -104,7 +122,10 @@ export default function TopNav() {
                         </Nav.Link>
                     </Nav>
                     <div className="d-none d-lg-block mx-2">|</div>
-                    <Nav>
+                    <Nav
+                        className="d-flex flex-row"
+                        css={styles.navbarSocialIcons}
+                    >
                         <Nav.Link href={socialLinks.twitter} target="_blank">
                             <i className="fa-brands fa-twitter" />
                         </Nav.Link>

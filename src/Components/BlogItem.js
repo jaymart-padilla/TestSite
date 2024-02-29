@@ -101,7 +101,7 @@ function BlogCard({ title, author, date, comments, img, content, tags }) {
     const [blogContent, setBlogContent] = useState("");
 
     useEffect(() => {
-        import(content)
+        import(/* @vite-ignore */ content)
             .then((res) => {
                 fetch(res.default)
                     .then((res) => res.text())

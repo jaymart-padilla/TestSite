@@ -13,6 +13,11 @@ const styles = {
             backgroundSize: "contain",
             backgroundRepeat: "no-repeat",
         },
+
+        ".carousel-control-prev, .carousel-control-next": {
+            border: "none",
+            background: "transparent",
+        },
     }),
 
     sliderCard: css({
@@ -47,38 +52,68 @@ const sliderItems = [
 
 export default function Slider() {
     return (
-        <Carousel
+        <div
+            id="indexMainSlider"
+            className="carousel slide"
+            data-ride="carousel"
+            data-interval="4000"
             css={styles.slider}
-            prevLabel=""
-            nextLabel=""
-            indicators={false}
         >
-            {sliderItems.map((sliderItem, index) => {
-                const { img, title, text } = sliderItem;
-                return (
-                    <Carousel.Item key={index}>
-                        <img src={img} alt={title} />
-                        <Carousel.Caption>
-                            <Card
-                                className="text-center"
-                                css={styles.sliderCard}
-                            >
-                                <Card.Body>
-                                    <Card.Title>{title}</Card.Title>
-                                    <Card.Text>{text}</Card.Text>
-                                    <Button
-                                        variant="outline-success"
-                                        size="sm"
-                                        className="accent-button"
-                                    >
-                                        Read More
-                                    </Button>
-                                </Card.Body>
-                            </Card>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                );
-            })}
-        </Carousel>
+            <div className="carousel-inner">
+                {sliderItems.map((sliderItem, index) => {
+                    const { img, title, text } = sliderItem;
+                    return (
+                        <Carousel.Item
+                            key={index}
+                            className={index === 1 && "active"}
+                        >
+                            <img src={img} alt={title} />
+                            <Carousel.Caption>
+                                <Card
+                                    className="text-center"
+                                    css={styles.sliderCard}
+                                >
+                                    <Card.Body>
+                                        <Card.Title>{title}</Card.Title>
+                                        <Card.Text>{text}</Card.Text>
+                                        <Button
+                                            variant="outline-success"
+                                            size="sm"
+                                            className="accent-button"
+                                        >
+                                            Read More
+                                        </Button>
+                                    </Card.Body>
+                                </Card>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                    );
+                })}
+            </div>
+            <button
+                className="carousel-control-prev"
+                type="button"
+                data-target="#indexMainSlider"
+                data-slide="prev"
+            >
+                <span
+                    className="carousel-control-prev-icon"
+                    aria-hidden="true"
+                ></span>
+                <span className="sr-only">Previous</span>
+            </button>
+            <button
+                className="carousel-control-next"
+                type="button"
+                data-target="#indexMainSlider"
+                data-slide="next"
+            >
+                <span
+                    className="carousel-control-next-icon"
+                    aria-hidden="true"
+                ></span>
+                <span className="sr-only">Next</span>
+            </button>
+        </div>
     );
 }
