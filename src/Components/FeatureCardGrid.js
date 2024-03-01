@@ -5,13 +5,13 @@ import SubHeader from "./SubHeader";
 import { features } from "../config/dummy-data";
 
 const styles = {
-    cardGridItem: css({
+    featuredCardGridItem: css({
         margin: "0 0.75rem",
         height: "100%",
         border: "none",
     }),
 
-    featureTitle: css({
+    featuredCardGridTitle: css({
         fontWeight: 500,
     }),
 };
@@ -37,14 +37,16 @@ function FeatureCard({ title, img }) {
         <Col className="text-center mb-4" xs={6} md={4} lg={3}>
             <Card
                 className="rounded-0 border-0 shadow-sm m-3"
-                css={styles.cardGridItem}
+                css={styles.featuredCardGridItem}
             >
                 <Card.Body
                     className="d-flex justify-content-center align-items-center py-3"
                     style={{ gap: "1.25rem" }}
                 >
                     <div dangerouslySetInnerHTML={{ __html: img }}></div>
-                    <Card.Text css={styles.featureTitle}>{title}</Card.Text>
+                    <Card.Text css={styles.featuredCardGridTitle}>
+                        {title}
+                    </Card.Text>
                 </Card.Body>
             </Card>
         </Col>

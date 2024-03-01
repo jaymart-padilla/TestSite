@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
 import { Button, Card, Col, Container, Pagination, Row } from "react-bootstrap";
 import { blogData } from "../config/dummy-data";
 import { paths } from "../config/paths";
@@ -7,65 +5,6 @@ import { formatDate } from "../utils/formateDate";
 import BlogSidebar from "./BlogSidebar";
 import BlogMarkdownLayout from "../Layouts/BlogMarkdownLayout";
 import { useEffect, useState } from "react";
-
-const styles = {
-    blogCard: css({ marginBottom: "2.75rem" }),
-
-    blogCardTitle: css({
-        fontSize: "1.5rem",
-        fontWeight: "bold",
-    }),
-
-    blogCardMetaData: css({
-        color: "gray",
-        marginBottom: "0.75rem",
-
-        display: "flex",
-        gap: "1.25rem",
-    }),
-
-    blogCardImage: css({
-        height: "300px",
-    }),
-
-    blogCardContentPreview: css({
-        fontSize: "0.85rem",
-        color: "#555",
-        wordSpacing: "0.175ch",
-    }),
-
-    blogCardButton: css({
-        width: "fit-content",
-        marginTop: "0.75rem",
-    }),
-
-    blogPagination: css({
-        display: "flex",
-        justifyContent: "center",
-        marginTop: "-1rem",
-
-        ".page-item > a": {
-            color: "#333",
-        },
-
-        ".page-item > a:hover, a:focus": {
-            color: "white",
-            backgroundColor: "var(--accent-color-muted)",
-        },
-
-        ".page-link": {
-            border: "none",
-            padding: "0.5rem 1.5rem",
-        },
-
-        ".page-item.active .page-link": {
-            backgroundColor: "var(--accent-color)",
-            borderColor: "var(--accent-color)",
-            padding: "0.5rem 1rem",
-            zIndex: 10,
-        },
-    }),
-};
 
 export default function Blog() {
     return (
@@ -81,6 +20,67 @@ export default function Blog() {
                     <BlogSidebar />
                 </Col>
             </Row>
+            <style jsx global>{`
+                .blog-card {
+                    margin-bottom: 2.75rem;
+                }
+
+                .blog-card-title {
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                }
+
+                .blog-card-metadata {
+                    color: gray;
+                    margin-bottom: 0.75rem;
+
+                    display: flex;
+                    gap: 1.25rem;
+                }
+
+                .blog-card-image {
+                    height: 300px;
+                }
+
+                .blog-card-content-preview {
+                    font-size: 0.85rem;
+                    color: #555;
+                    word-spacing: 0.175ch;
+                }
+
+                .blog-card-button {
+                    width: fit-content;
+                    margin-top: 0.75rem;
+                }
+
+                .blog-pagination {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: -1rem;
+                }
+
+                .blog-pagination .page-item > a {
+                    color: #333;
+                }
+
+                .blog-pagination .page-item > a:hover,
+                .blog-pagination .page-item > a:focus {
+                    color: white;
+                    background-color: var(--accent-color-muted);
+                }
+
+                .blog-pagination .page-link {
+                    border: none;
+                    padding: 0.5rem 1.5rem;
+                }
+
+                .blog-pagination .page-item.active .page-link {
+                    background-color: var(--accent-color);
+                    border-color: var(--accent-color);
+                    padding: 0.5rem 1rem;
+                    z-index: 10;
+                }
+            `}</style>
         </Container>
     );
 }
@@ -112,17 +112,16 @@ function BlogCard({ id, title, author, date, comments, img, content }) {
     });
 
     return (
-        <Card css={styles.blogCard}>
+        <Card className="blog-card">
             <Card.Img
                 variant="top"
                 src={img}
                 alt={`${author}'s Blog: ${title}`}
-                className="normalized-image"
-                css={styles.blogCardImage}
+                className="normalized-image blog-card-image"
             />
             <Card.Body className="px-4">
-                <Card.Title css={styles.blogCardTitle}>{title}</Card.Title>
-                <Card.Text css={styles.blogCardMetaData}>
+                <Card.Title className="blog-card-title">{title}</Card.Title>
+                <Card.Text className="blog-card-metadata">
                     <small>
                         <i className="fa-regular fa-user mr-2" />
                         {author}
@@ -157,15 +156,14 @@ function BlogCard({ id, title, author, date, comments, img, content }) {
                             <h6 {...props}>{children}</h6>
                         ),
                     }}
-                    css={styles.blogCardContentPreview}
+                    className="blog-card-content-preview"
                 >
                     {blogContent}
                 </BlogMarkdownLayout>
                 <Button
                     href={`${paths.blog.url}/${id}`}
                     variant="success"
-                    className="d-block ml-auto accent-button py-1 px-3 font-weight-normal"
-                    css={styles.blogCardButton}
+                    className="d-block ml-auto accent-button py-1 px-3 font-weight-normal blog-card-button"
                 >
                     Read More
                 </Button>
@@ -176,7 +174,7 @@ function BlogCard({ id, title, author, date, comments, img, content }) {
 
 function BlogPagination() {
     return (
-        <Pagination css={styles.blogPagination}>
+        <Pagination className="blog-pagination">
             <Pagination.Item key={1} activeLabel="">
                 1
             </Pagination.Item>

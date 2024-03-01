@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 
 const styles = {
-    cardGrid: css({
+    pricingCardGrid: css({
         fontSize: "0.9rem",
         padding: "2.75rem",
 
@@ -112,7 +112,7 @@ export default function PricingCard({ pricingCardItems, colSize = 4 }) {
     );
 
     return (
-        <section css={styles.cardGrid}>
+        <section css={styles.pricingCardGrid}>
             <Container>
                 <Row className="no-gutters">
                     {pricingCardItems.map((pricingCardItem, index) => {

@@ -62,7 +62,7 @@ function ContactInfo() {
     return (
         <div
             className="d-flex justify-content-between px-5 py-4"
-            css={[styles.container, styles.contactInfo]}
+            css={[styles.contactRoot, styles.contactInfo]}
         >
             <div css={styles.contactInfoContainer}>
                 <i
@@ -122,7 +122,7 @@ function ContactInfo() {
 function ContactForm() {
     return (
         <Form
-            css={[styles.container, styles.contactForm]}
+            css={[styles.contactRoot, styles.contactForm]}
             style={{ gap: "1rem" }}
         >
             <Row>

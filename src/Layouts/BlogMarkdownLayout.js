@@ -27,10 +27,15 @@ const styles = {
 };
 
 //
-//  children prop must be a `string` in `Markdown` component
+//  children prop must be a `string/text` in `Markdown` component
 //
 
-export default function BlogMarkdownLayout({ children, overrides, ...props }) {
+export default function BlogMarkdownLayout({
+    children,
+    overrides,
+    className = "",
+    ...props
+}) {
     return (
         <Markdown
             options={{
@@ -47,6 +52,7 @@ export default function BlogMarkdownLayout({ children, overrides, ...props }) {
                 },
             }}
             {...props}
+            className={className}
         >
             {children}
         </Markdown>

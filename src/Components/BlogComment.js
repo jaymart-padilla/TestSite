@@ -1,40 +1,5 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
 import { Card } from "react-bootstrap";
 import { formatDate } from "../utils/formateDate";
-
-const styles = {
-    blogCommentRoot: css({
-        minWidth: 275,
-        fontSize: "0.9rem",
-        fontWeight: 500,
-    }),
-
-    blogCommentContainer: css({
-        gap: "1.125rem",
-    }),
-
-    blogCommentName: css({
-        display: "flex",
-        gap: "1rem",
-        justifyContent: "start",
-        alignItems: "center",
-
-        fontSize: "0.975rem",
-        margin: 0,
-    }),
-
-    blogCommentDate: css({
-        color: "gray",
-        display: "block",
-        marginBottom: "0.125rem",
-    }),
-
-    blogCommentText: css({
-        color: "#333",
-        fontSize: "0.8rem",
-    }),
-};
 
 export const blogComments = [
     {
@@ -54,8 +19,8 @@ export default function BlogComment({ name, date, img, comment }) {
     const formattedDate = formatDate(date);
 
     return (
-        <Card className="border-0" css={styles.blogCommentRoot}>
-            <Card.Body className="d-flex" css={styles.blogCommentContainer}>
+        <Card className="border-0 blog-comment-root">
+            <Card.Body className="d-flex blog-comment-container">
                 <img
                     src={img}
                     alt={name}
@@ -70,7 +35,7 @@ export default function BlogComment({ name, date, img, comment }) {
                     }}
                 />
                 <div>
-                    <p css={styles.blogCommentName}>
+                    <p className="blog-comment-name">
                         {name}{" "}
                         <a href="#" className="text-dark">
                             <small>
@@ -78,10 +43,44 @@ export default function BlogComment({ name, date, img, comment }) {
                             </small>
                         </a>
                     </p>
-                    <small css={styles.blogCommentDate}>{formattedDate}</small>
-                    <small css={styles.blogCommentText}>{comment}</small>
+                    <small className="blog-comment-date">{formattedDate}</small>
+                    <small className="blog-comment-text">{comment}</small>
                 </div>
             </Card.Body>
+            <style jsx global>
+                {`
+                    .blog-comment-root {
+                        min-width: 275px;
+                        font-size: 0.9rem;
+                        font-weight: 500;
+                    }
+
+                    .blog-comment-container {
+                        gap: 1.125rem;
+                    }
+
+                    .blog-comment-name {
+                        display: flex;
+                        gap: 1rem;
+                        justify-content: start;
+                        align-items: center;
+
+                        font-size: 0.975rem;
+                        margin: 0;
+                    }
+
+                    .blog-comment-date {
+                        color: gray;
+                        display: block;
+                        margin-bottom: 0.125rem;
+                    }
+
+                    .blog-comment-text {
+                        color: #333;
+                        font-size: 0.8rem;
+                    }
+                `}
+            </style>
         </Card>
     );
 }

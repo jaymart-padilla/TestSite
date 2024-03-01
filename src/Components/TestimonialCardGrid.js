@@ -3,21 +3,21 @@ import { css } from "@emotion/react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 
 const styles = {
-    cardGrid: css({
+    testimonialCardGrid: css({
         padding: "2.75rem 0rem",
     }),
 
-    cardGridItem: css({
+    testimonialCardGridItem: css({
         margin: "0 0.75rem",
         height: "100%",
         border: "none",
     }),
 
-    title: css({
+    testimonialTitle: css({
         fontWeight: 500,
     }),
 
-    quote: css({
+    testimonialQuote: css({
         margin: 0,
         fontSize: "0.9rem",
         fontStyle: "italic",
@@ -25,7 +25,7 @@ const styles = {
         wordSpacing: "0.075rem",
     }),
 
-    quoteMarks: css({
+    testimonialQuoteMarks: css({
         color: "var(--gray-muted)",
     }),
 };
@@ -39,7 +39,7 @@ export default function TestimonialCard({
     if (!testimonials || !testimonials.length > 0) return null;
 
     return (
-        <section className="section-darken" css={styles.cardGrid}>
+        <section className="section-darken" css={styles.testimonialCardGrid}>
             <Container>
                 <Row className="no-gutters">
                     {testimonials.map((testimonial, index) => {
@@ -71,7 +71,7 @@ function CardItem({ name, title, img, text, imgPxSize, withShadow }) {
     return (
         <Card
             className={`px-3 ${withShadow && "shadow-sm"}`}
-            css={styles.cardGridItem}
+            css={styles.testimonialCardGridItem}
         >
             <Card.Body>
                 <img
@@ -88,20 +88,23 @@ function CardItem({ name, title, img, text, imgPxSize, withShadow }) {
                     }}
                 />
                 <div className="d-flex flex-column align-items-start pl-2 pb-3">
-                    <strong css={styles.title}>{name}</strong>
-                    <small className="text-muted mt-1" css={styles.title}>
+                    <strong css={styles.testimonialTitle}>{name}</strong>
+                    <small
+                        className="text-muted mt-1"
+                        css={styles.testimonialTitle}
+                    >
                         {title}
                     </small>
                 </div>
-                <p css={styles.quote} className="text-left">
+                <p css={styles.testimonialQuote} className="text-left">
                     <i
                         className="fa-solid fa-quote-left fa-2xl pr-2"
-                        css={styles.quoteMarks}
+                        css={styles.testimonialQuoteMarks}
                     />
                     {text}
                     <i
                         className="fa-solid fa-quote-right fa-2xl pl-2"
-                        css={styles.quoteMarks}
+                        css={styles.testimonialQuoteMarks}
                     />
                 </p>
             </Card.Body>

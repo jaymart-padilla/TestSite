@@ -1,41 +1,4 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
 import { Carousel, Card, Button } from "react-bootstrap";
-
-const styles = {
-    slider: css({
-        "& img": {
-            width: "100%",
-            maxHeight: "65vh",
-            height: "65vh",
-            objectFit: "cover",
-            backgroundPosition: "center",
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-        },
-
-        ".carousel-control-prev, .carousel-control-next": {
-            border: "none",
-            background: "transparent",
-        },
-    }),
-
-    sliderCard: css({
-        width: "70%",
-        margin: "0 auto",
-        backgroundColor: "#00000099",
-        borderTop: "0.25rem solid var(--accent-color)",
-        borderBottom: "none",
-        borderLeft: "none",
-        borderRight: "none",
-        boxShadow: "none",
-        fontSize: "small",
-
-        "@media (max-width: 768px)": {
-            width: "100%",
-        },
-    }),
-};
 
 const sliderItems = [
     {
@@ -54,10 +17,9 @@ export default function Slider() {
     return (
         <div
             id="indexMainSlider"
-            className="carousel slide"
+            className="carousel slide slider"
             data-ride="carousel"
             data-interval="4000"
-            css={styles.slider}
         >
             <div className="carousel-inner">
                 {sliderItems.map((sliderItem, index) => {
@@ -69,10 +31,7 @@ export default function Slider() {
                         >
                             <img src={img} alt={title} />
                             <Carousel.Caption>
-                                <Card
-                                    className="text-center"
-                                    css={styles.sliderCard}
-                                >
+                                <Card className="text-center slider-card">
                                     <Card.Body>
                                         <Card.Title>{title}</Card.Title>
                                         <Card.Text>{text}</Card.Text>
@@ -114,6 +73,38 @@ export default function Slider() {
                 ></span>
                 <span className="sr-only">Next</span>
             </button>
+            <style jsx global>{`
+                .slider img {
+                    width: 100%;
+                    max-height: 65vh;
+                    height: 65vh;
+                    object-fit: cover;
+                    background-position: center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                }
+                .slider .carousel-control-prev,
+                .slider .carousel-control-next {
+                    border: none;
+                    background: transparent;
+                }
+                .slider .slider-card {
+                    width: 70%;
+                    margin: 0 auto;
+                    background-color: #00000099;
+                    border-top: 0.25rem solid var(--accent-color);
+                    border-bottom: none;
+                    border-left: none;
+                    border-right: none;
+                    box-shadow: none;
+                    font-size: small;
+                }
+                @media (max-width: 768px) {
+                    .slider .slider-card {
+                        width: 100%;
+                    }
+                }
+            `}</style>
         </div>
     );
 }

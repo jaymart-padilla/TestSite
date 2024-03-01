@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 import { Breadcrumb, Container } from "react-bootstrap";
 
 const styles = {
-    breadcrumbs: css({
+    topBreadcrumbs: css({
         backgroundColor: "var(--accent-color)",
 
         ".breadcrumb": {
@@ -29,7 +29,7 @@ export default function TopBreadcrumbs({ links, activeLink }) {
     const maxLetters = 20;
 
     return (
-        <Container fluid css={styles.breadcrumbs}>
+        <Container fluid css={styles.topBreadcrumbs}>
             <Container className="d-flex align-items-center justify-content-between py-2 px-3">
                 <h5 className="m-0">
                     <a

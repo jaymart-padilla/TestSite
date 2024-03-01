@@ -4,11 +4,11 @@ import SubHeader from "./SubHeader";
 import { Container, Accordion } from "react-bootstrap";
 
 const styles = {
-    cardGrid: css({
+    faqCardGrid: css({
         padding: "2.75rem 0rem",
     }),
 
-    accordion: css({
+    faqAccordion: css({
         display: "flex",
         flexDirection: "column",
         gap: "1rem",
@@ -46,7 +46,7 @@ export default function FAQ({ faqData }) {
     if (!faqData || !faqData.length > 0) return null;
 
     return (
-        <section className="section-darken" css={styles.cardGrid}>
+        <section className="section-darken" css={styles.faqCardGrid}>
             <SubHeader title="Frequently Asked Questions" />
             <Container className="mt-5 px-4">
                 <FAQAccordion faqData={faqData} />
@@ -57,7 +57,7 @@ export default function FAQ({ faqData }) {
 
 function FAQAccordion({ faqData }) {
     return (
-        <Accordion defaultActiveKey="0" css={styles.accordion}>
+        <Accordion defaultActiveKey="0" css={styles.faqAccordion}>
             {faqData.map((faq, index) => {
                 return (
                     <Accordion.Item eventKey={index.toString()} key={index}>

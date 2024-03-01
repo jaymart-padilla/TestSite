@@ -1,51 +1,18 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
 import { Container } from "react-bootstrap";
-
-const styles = {
-    banner: css({
-        gap: "1.5rem",
-        padding: "2.75rem 0rem",
-        fontSize: "0.9rem",
-
-        "@media (max-width: 576px)": {
-            padding: "2.75rem 4rem",
-        },
-    }),
-
-    bannerChild: css({
-        width: "100%",
-    }),
-
-    bannerTitle: css({
-        fontSize: "2.125rem",
-        marginBottom: "1rem",
-    }),
-
-    bannerSubtitle: css({
-        fontWeight: 500,
-    }),
-};
 
 export default function Banner() {
     return (
-        <Container
-            className="d-flex flex-md-row flex-column justify-content-center text-dark"
-            css={styles.banner}
-        >
-            <div css={styles.bannerChild}>
-                <h2
-                    className="text-uppercase font-weight-bold"
-                    css={styles.bannerTitle}
-                >
+        <Container className="d-flex flex-md-row flex-column justify-content-center text-dark banner">
+            <div className="banner-child">
+                <h2 className="text-uppercase font-weight-bold banner-title">
                     Eum ipsam laborum deleniti velitena
                 </h2>
-                <p className="lead m-0" css={styles.bannerSubtitle}>
+                <p className="lead m-0 banner-subtitle">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Quaerat, eos quasi. Perferendis laudantium.
                 </p>
             </div>
-            <div css={styles.bannerChild}>
+            <div className="banner-child">
                 <p className="m-0">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Voluptas deserunt, minima unde culpa perspiciatis adipisci
@@ -90,6 +57,28 @@ export default function Banner() {
                     Tempore, maiores laboriosam excepturi repellat velit esse?
                 </p>
             </div>
+            <style jsx global>{`
+                .banner {
+                    gap: 1.5rem;
+                    padding: 2.75rem 0rem;
+                    font-size: 0.9rem;
+                }
+                .banner-child {
+                    width: 100%;
+                }
+                .banner-title {
+                    font-size: 2.125rem;
+                    margin-bottom: 1rem;
+                }
+                .banner-subtitle {
+                    font-weight: 500;
+                }
+                @media (max-width: 576px) {
+                    .banner {
+                        padding: 2.75rem 4rem;
+                    }
+                }
+            `}</style>
         </Container>
     );
 }

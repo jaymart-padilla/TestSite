@@ -5,7 +5,7 @@ import { paths } from "../config/paths";
 import { socialLinks } from "../config/social-links";
 
 const styles = {
-    navbar: {
+    topNavbar: {
         padding: "0.5rem 0",
 
         "@media (max-width: 992px)": {
@@ -13,11 +13,11 @@ const styles = {
         },
     },
 
-    navbarBrand: css({
+    topNavbarBrand: css({
         fontSize: "1.5rem",
     }),
 
-    navContainer: css({
+    topNavContainer: css({
         fontSize: "small",
 
         ".nav-container-link": {
@@ -33,7 +33,7 @@ const styles = {
         },
     }),
 
-    navbarSocialIcons: css({
+    topNavbarSocialIcons: css({
         "@media (max-width: 992px)": {
             gap: "1.25rem",
         },
@@ -43,17 +43,17 @@ const styles = {
 export default function TopNav() {
     return (
         <Container>
-            <Navbar collapseOnSelect expand="lg" css={styles.navbar}>
+            <Navbar collapseOnSelect expand="lg" css={styles.topNavbar}>
                 <Navbar.Brand
                     href={paths.home.url}
                     className="text-uppercase font-weight-bold"
-                    css={styles.navbarBrand}
+                    css={styles.topNavbarBrand}
                 >
                     <span className="accent-color">Test</span>Site
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav" className="gap-5">
-                    <Nav className="ml-auto" css={styles.navContainer}>
+                    <Nav className="ml-auto" css={styles.topNavContainer}>
                         <Nav.Link
                             href={paths.home.url}
                             className="text-dark nav-container-link"
@@ -124,7 +124,7 @@ export default function TopNav() {
                     <div className="d-none d-lg-block mx-2">|</div>
                     <Nav
                         className="d-flex flex-row"
-                        css={styles.navbarSocialIcons}
+                        css={styles.topNavbarSocialIcons}
                     >
                         <Nav.Link href={socialLinks.twitter} target="_blank">
                             <i className="fa-brands fa-twitter" />

@@ -5,7 +5,7 @@ import SubHeader from "./SubHeader";
 import { skills } from "../config/dummy-data";
 
 const styles = {
-    progress: css({
+    skillProgress: css({
         ".progress": {
             height: "0.675rem",
         },
@@ -14,7 +14,7 @@ const styles = {
         },
     }),
 
-    progressLabel: css({
+    skillProgressLabel: css({
         fontSize: "0.75rem",
         fontWeight: 500,
     }),
@@ -42,13 +42,19 @@ function Progress({ label, value }) {
             className="text-center pb-3 px-4"
             sm={12}
             md={6}
-            css={styles.progress}
+            css={styles.skillProgress}
         >
             <div className="d-flex justify-content-between align-items-center mb-1">
-                <small className="text-uppercase" css={styles.progressLabel}>
+                <small
+                    className="text-uppercase"
+                    css={styles.skillProgressLabel}
+                >
                     {label}
                 </small>
-                <small className="text-uppercase" css={styles.progressLabel}>
+                <small
+                    className="text-uppercase"
+                    css={styles.skillProgressLabel}
+                >
                     {value}&#37;
                 </small>
             </div>
