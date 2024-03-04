@@ -225,7 +225,7 @@ function BlogLeaveReplyForm() {
             <h5 className="font-weight-bold">Leave a Reply</h5>
             <small className="d-block mt-2 mb-3">
                 Your email address will not be published. Required fields are
-                marked *
+                marked <span className="text-danger">*</span>
             </small>
             <Row>
                 <Form.Group as={Col} controlId="name" className="mb-3">

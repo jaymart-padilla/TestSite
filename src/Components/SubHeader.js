@@ -12,7 +12,7 @@ export default function SubHeader({ title, description = "" }) {
                         text-transform: uppercase;
                         font-weight: bold;
                     }
-                    .subheader:after {
+                    .subheader::after {
                         content: "";
                         position: absolute;
                         bottom: -0.85rem;
