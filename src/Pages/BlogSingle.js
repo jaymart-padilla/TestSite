@@ -1,6 +1,6 @@
+import { useParams } from "react-router-dom";
 import TopBreadcrumbs from "../Components/TopBreadcrumbs";
 import BlogItem from "../Components/BlogItem";
-import { useParams } from "react-router-dom";
 import { paths } from "../config/paths";
 import { blogData } from "../config/dummy-data";
 

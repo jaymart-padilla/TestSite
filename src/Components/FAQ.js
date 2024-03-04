@@ -1,5 +1,5 @@
-import SubHeader from "./SubHeader";
 import { Container, Accordion } from "react-bootstrap";
+import SubHeader from "./SubHeader";
 
 export default function FAQ({ faqData }) {
     if (!faqData || !faqData.length > 0) return null;

@@ -1,10 +1,10 @@
+import { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Pagination, Row } from "react-bootstrap";
-import { blogData } from "../config/dummy-data";
-import { paths } from "../config/paths";
-import { formatDate } from "../utils/formateDate";
 import BlogSidebar from "./BlogSidebar";
 import BlogMarkdownLayout from "../Layouts/BlogMarkdownLayout";
-import { useEffect, useState } from "react";
+import { formatDate } from "../utils/formateDate";
+import { paths } from "../config/paths";
+import { blogData } from "../config/dummy-data";
 
 export default function Blog() {
     return (

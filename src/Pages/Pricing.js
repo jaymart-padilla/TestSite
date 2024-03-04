@@ -1,8 +1,8 @@
 import FAQ from "../Components/FAQ";
 import PricingCard from "../Components/PricingCard";
 import TopBreadcrumbs from "../Components/TopBreadcrumbs";
-import { pricingCardItems, faqData } from "../config/dummy-data";
 import { paths } from "../config/paths";
+import { pricingCardItems, faqData } from "../config/dummy-data";
 
 export default function Pricing() {
     return (

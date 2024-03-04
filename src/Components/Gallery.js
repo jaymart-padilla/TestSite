@@ -1,6 +1,6 @@
+import { useState } from "react";
 import { Container, Nav, Row, Card, Tab } from "react-bootstrap";
 import { galleryItems } from "../config/dummy-data";
-import { useState } from "react";
 
 const tabs = [
     { title: "All", category: "all", link: "link-1" },

@@ -1,6 +1,6 @@
 import TopBreadcrumbs from "../Components/TopBreadcrumbs";
-import { paths } from "../config/paths";
 import ContactFormIndex from "../Components/ContactFormIndex";
+import { paths } from "../config/paths";
 
 export default function Contact() {
     return (

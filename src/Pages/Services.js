@@ -1,8 +1,8 @@
 import CardGrid from "../Components/CardGrid";
 import FeatureCardGrid from "../Components/FeatureCardGrid";
 import TopBreadcrumbs from "../Components/TopBreadcrumbs";
-import { services } from "../config/dummy-data";
 import { paths } from "../config/paths";
+import { services } from "../config/dummy-data";
 
 export default function Services() {
     return (

@@ -1,9 +1,9 @@
-import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
-import BlogSidebar from "./BlogSidebar";
-import { formatDate } from "../utils/formateDate";
 import { useEffect, useState } from "react";
+import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import BlogMarkdownLayout from "../Layouts/BlogMarkdownLayout";
+import BlogSidebar from "./BlogSidebar";
 import BlogComment from "./BlogComment";
+import { formatDate } from "../utils/formateDate";
 import { blogComment } from "../config/dummy-data";
 
 export default function BlogItem({ blog }) {

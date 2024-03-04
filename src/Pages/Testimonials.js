@@ -1,7 +1,7 @@
 import TopBreadcrumbs from "../Components/TopBreadcrumbs";
 import TestimonialCardGrid from "../Components/TestimonialCardGrid";
-import { testimonials } from "../config/dummy-data";
 import { paths } from "../config/paths";
+import { testimonials } from "../config/dummy-data";
 
 export default function Testimonials() {
     return (

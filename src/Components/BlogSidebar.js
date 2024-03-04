@@ -1,7 +1,7 @@
 import { Button, Form, FormControl, InputGroup } from "react-bootstrap";
-import { blogCategories, blogData, blogTags } from "../config/dummy-data";
 import { formatDate } from "../utils/formateDate";
 import { paths } from "../config/paths";
+import { blogCategories, blogData, blogTags } from "../config/dummy-data";
 
 export default function BlogSidebar() {
     return (
