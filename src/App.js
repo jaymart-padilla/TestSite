@@ -16,7 +16,6 @@ import Contact from "./Pages/Contact";
 import BlogIndex from "./Pages/BlogIndex";
 import BlogSingle from "./Pages/BlogSingle";
 import { paths } from "./config/paths";
-import "./assets/css/app.css";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -43,7 +42,75 @@ const router = createBrowserRouter(
 );
 
 function App() {
-    return <RouterProvider router={router} />;
+    return (
+        <>
+            <RouterProvider router={router} />
+            <style jsx global>
+                {`
+                    :root {
+                        --accent-color: #1bbd36;
+                        --accent-color-muted: #1bbd3666;
+                        --light-muted: #f5f5f5;
+                        --gray-muted: #ddd;
+
+                        --section-gap: 5rem;
+                    }
+
+                    *,
+                    *::before,
+                    *::after {
+                        transition: all 100ms ease-in-out;
+                    }
+
+                    .accent-color {
+                        color: var(--accent-color) !important;
+                    }
+
+                    .accent-button {
+                        color: white !important;
+                        font-weight: 500 !important;
+                        font-size: small !important;
+                        padding: 0.5rem 1.75rem !important;
+                    }
+
+                    a.animated-link:after {
+                        display: block;
+                        content: "";
+                        width: inherit;
+                        border-bottom: solid 0.15rem var(--accent-color);
+                        transform: scaleX(0);
+                        transition: transform 250ms ease-in-out;
+                        transform-origin: left;
+                    }
+
+                    a.animated-link:hover:after {
+                        transform: scaleX(1);
+                    }
+
+                    .section {
+                        margin-top: var(--section-gap);
+                        margin-bottom: var(--section-gap);
+                    }
+
+                    .section-darken {
+                        background: radial-gradient(
+                            circle,
+                            rgba(255, 255, 255) 0%,
+                            rgba(238, 238, 238) 50%,
+                            rgba(224, 224, 224) 100%
+                        );
+                    }
+
+                    .normalized-image {
+                        object-fit: cover;
+                        background-position: center;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                    }
+                `}
+            </style>
+        </>
+    );
 }
 
 export default App;
