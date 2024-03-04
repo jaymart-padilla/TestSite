@@ -1,73 +1,70 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
 import { Button, Form, FormControl, InputGroup } from "react-bootstrap";
 import { blogCategories, blogData, blogTags } from "../config/dummy-data";
 import { formatDate } from "../utils/formateDate";
 import { paths } from "../config/paths";
 
-const styles = {
-    blogSidebar: css({
-        display: "flex",
-        flexDirection: "column",
-        gap: "1.5rem",
-
-        fontSize: "0.9rem",
-    }),
-
-    blogSidebarSectionTitle: css({
-        fontSize: "1.125rem",
-        fontWeight: 500,
-        marginBottom: "0.5rem",
-    }),
-
-    blogSidebarSearchInput: css({
-        fontSize: "inherit",
-    }),
-
-    blogSidebarSearchButton: css({
-        color: "white",
-        border: "none",
-        borderRadius: "0 0.25rem 0.25rem 0",
-    }),
-
-    blogSidebarCategories: css({
-        display: "flex",
-        flexDirection: "column",
-        gap: "0.5rem",
-
-        color: "#555",
-        fontWeight: 500,
-    }),
-
-    blogSidebarRecentPostContainer: css({
-        display: "flex",
-        flexDirection: "column",
-        gap: "1rem",
-    }),
-
-    blogSidebarRecentPost: css({
-        display: "flex",
-        gap: "1rem",
-    }),
-
-    blogSidebarRecentPostTitle: css({
-        fontWeight: 500,
-        color: "inherit",
-    }),
-
-    blogSidebarTag: css({
-        fontSize: "small",
-        padding: "0.25rem 0.75rem",
-    }),
-};
-
 export default function BlogSidebar() {
     return (
-        <section className="p-3" css={styles.blogSidebar}>
+        <section className="p-3 blog-sidebar">
             <SearchSection />
             <CategoriesSection />
             <RecentPostSection />
             <TagSection />
+            <style jsx global>
+                {`
+                    .blog-sidebar {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1.5rem;
+                        font-size: 0.9rem;
+                    }
+
+                    .blog-sidebar-section-title {
+                        font-size: 1.125rem;
+                        font-weight: 500;
+                        margin-bottom: 0.5rem;
+                    }
+
+                    .blog-sidebar-search-input {
+                        font-size: inherit;
+                    }
+
+                    .blog-sidebar-search-button {
+                        color: white;
+                        border: none;
+                        border-radius: 0 0.25rem 0.25rem 0;
+                    }
+
+                    .blog-sidebar-categories {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.5rem;
+                        color: #555;
+                        font-weight: 500;
+                    }
+
+                    .blog-sidebar-recent-post-container {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
+                    }
+
+                    .blog-sidebar-recent-post {
+                        display: flex;
+                        gap: 1rem;
+                    }
+
+                    .blog-sidebar-recent-post-title {
+                        font-weight: 500;
+                        color: inherit;
+                    }
+
+                    .blog-sidebar-tag {
+                        font-size: small;
+                        padding: 0.25rem 0.75rem;
+                    }
+                `}
+            </style>
         </section>
     );
 }
@@ -75,18 +72,16 @@ export default function BlogSidebar() {
 function SearchSection() {
     return (
         <Form>
-            <div css={styles.blogSidebarSectionTitle}>Search</div>
+            <div className="blog-sidebar-section-title">Search</div>
             <InputGroup>
                 <FormControl
-                    className="border-right-0"
+                    className="border-right-0 blog-sidebar-search-input"
                     aria-label="Search"
                     aria-describedby="basic-addon2"
-                    css={styles.blogSidebarSearchInput}
                 />
                 <Button
                     variant="success"
-                    className="accent-button px-3"
-                    css={styles.blogSidebarSearchButton}
+                    className="accent-button px-3 blog-sidebar-search-button"
                 >
                     <i className="fa-solid fa-magnifying-glass" />
                 </Button>
@@ -98,8 +93,8 @@ function SearchSection() {
 function CategoriesSection() {
     return (
         <div>
-            <div css={styles.blogSidebarSectionTitle}>Categories</div>
-            <div css={styles.blogSidebarCategories}>
+            <div className="blog-sidebar-section-title">Categories</div>
+            <div className="blog-sidebar-categories">
                 {blogCategories.map((blogCategory, index) => {
                     return (
                         <span key={index}>
@@ -118,12 +113,12 @@ function CategoriesSection() {
 function RecentPostSection() {
     return (
         <div>
-            <div css={styles.blogSidebarSectionTitle}>Recent Posts</div>
-            <div css={styles.blogSidebarRecentPostContainer}>
+            <div className="blog-sidebar-section-title">Recent Posts</div>
+            <div className="blog-sidebar-recent-post-container">
                 {blogData.map((blog, index) => {
                     const formattedDate = formatDate(blog.date);
                     return (
-                        <div key={index} css={styles.blogSidebarRecentPost}>
+                        <div className="blog-sidebar-recent-post" key={index}>
                             <a href={`${paths.blog.url}/${blog.id}`}>
                                 <img
                                     className="normalized-image mt-1"
@@ -136,7 +131,7 @@ function RecentPostSection() {
                             <div className="d-flex flex-column">
                                 <a
                                     href={`${paths.blog.url}/${blog.id}`}
-                                    css={styles.blogSidebarRecentPostTitle}
+                                    className="blog-sidebar-recent-post-title"
                                 >
                                     {blog.title}
                                 </a>
@@ -157,15 +152,14 @@ function RecentPostSection() {
 function TagSection() {
     return (
         <div>
-            <div css={styles.blogSidebarSectionTitle}>Tags</div>
+            <div className="blog-sidebar-section-title">Tags</div>
             {blogTags.map((blogTag, index) => {
                 return (
                     <Button
                         variant="outline-secondary"
-                        className="mb-2 mr-2 rounded-0"
+                        className="mb-2 mr-2 rounded-0 blog-sidebar-tag"
                         size="sm"
                         key={index}
-                        css={styles.blogSidebarTag}
                     >
                         {blogTag}
                     </Button>

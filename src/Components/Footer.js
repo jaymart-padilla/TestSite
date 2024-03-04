@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
 import {
     Button,
     Col,
@@ -12,29 +10,6 @@ import {
 } from "react-bootstrap";
 import { socialLinks as socialUrl } from "../config/social-links";
 import { paths } from "../config/paths";
-
-const styles = {
-    footer: css({
-        fontSize: "small",
-
-        "& a:hover": {
-            color: "#f0f0f0 !important",
-        },
-    }),
-
-    upperFooter: css({
-        backgroundColor: "#1e1e1e",
-    }),
-
-    lowerFooter: css({
-        backgroundColor: "#111111",
-    }),
-
-    footerInfoLabel: css({
-        fontWeight: 500,
-        color: "lightgray",
-    }),
-};
 
 const footerLinks = {
     usefulLinks: [
@@ -74,12 +49,8 @@ const socialLinks = [
 
 export default function Footer() {
     return (
-        <footer css={styles.footer}>
-            <Container
-                fluid
-                className="py-5 text-light"
-                css={styles.upperFooter}
-            >
+        <footer className="footer-index">
+            <Container fluid className="py-5 text-light upper-footer">
                 <Row className="container mx-auto flex-md-row flex-column">
                     <Col className="mb-md-3 mb-4">
                         <h5>COMPANY</h5>
@@ -92,12 +63,12 @@ export default function Footer() {
                                 United States
                             </p>
                             <p className="p-0 mb-0 text-white-50">
-                                <strong css={styles.footerInfoLabel}>
+                                <strong className="footer-info-label">
                                     Phone:{" "}
                                 </strong>
                                 +1 5589 55488 55
                                 <br />
-                                <strong css={styles.footerInfoLabel}>
+                                <strong className="footer-info-label">
                                     Email:{" "}
                                 </strong>
                                 info@example.com
@@ -175,11 +146,7 @@ export default function Footer() {
                     </Col>
                 </Row>
             </Container>
-            <Container
-                fluid
-                className="text-light footer"
-                css={styles.lowerFooter}
-            >
+            <Container fluid className="text-light footer lower-footer">
                 <div className="container d-flex flex-column flex-sm-row justify-content-between py-4">
                     <p>
                         &copy; Copyright <strong>TestSite</strong>. All rights
@@ -202,6 +169,30 @@ export default function Footer() {
                     </ul>
                 </div>
             </Container>
+            <style jsx global>
+                {`
+                    .upper-footer {
+                        background-color: #1e1e1e;
+                    }
+
+                    .lower-footer {
+                        background-color: #111111;
+                    }
+
+                    .footer-info-label {
+                        font-weight: 500;
+                        color: lightgray;
+                    }
+
+                    .footer-index {
+                        font-size: small;
+                    }
+
+                    .footer-index a:hover {
+                        color: #f0f0f0 !important;
+                    }
+                `}
+            </style>
         </footer>
     );
 }

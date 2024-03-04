@@ -1,20 +1,6 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import SubHeader from "./SubHeader";
 import { features } from "../config/dummy-data";
-
-const styles = {
-    featuredCardGridItem: css({
-        margin: "0 0.75rem",
-        height: "100%",
-        border: "none",
-    }),
-
-    featuredCardGridTitle: css({
-        fontWeight: 500,
-    }),
-};
 
 export default function FeatureCardGrid() {
     return (
@@ -28,6 +14,19 @@ export default function FeatureCardGrid() {
                     return <FeatureCard {...feature} key={index} />;
                 })}
             </Row>
+            <style jsx global>
+                {`
+                    .featured-card-grid-item {
+                        margin: 0 0.75rem;
+                        height: 100%;
+                        border: none;
+                    }
+
+                    .featured-card-grid-title {
+                        font-weight: 500;
+                    }
+                `}
+            </style>
         </Container>
     );
 }
@@ -35,16 +34,13 @@ export default function FeatureCardGrid() {
 function FeatureCard({ title, img }) {
     return (
         <Col className="text-center mb-4" xs={6} md={4} lg={3}>
-            <Card
-                className="rounded-0 border-0 shadow-sm m-3"
-                css={styles.featuredCardGridItem}
-            >
+            <Card className="rounded-0 border-0 shadow-sm m-3 featured-card-grid-item">
                 <Card.Body
                     className="d-flex justify-content-center align-items-center py-3"
                     style={{ gap: "1.25rem" }}
                 >
                     <div dangerouslySetInnerHTML={{ __html: img }}></div>
-                    <Card.Text css={styles.featuredCardGridTitle}>
+                    <Card.Text className="featured-card-grid-title">
                         {title}
                     </Card.Text>
                 </Card.Body>

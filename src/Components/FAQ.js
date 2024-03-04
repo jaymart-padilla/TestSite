@@ -1,63 +1,62 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
 import SubHeader from "./SubHeader";
 import { Container, Accordion } from "react-bootstrap";
-
-const styles = {
-    faqCardGrid: css({
-        padding: "2.75rem 0rem",
-    }),
-
-    faqAccordion: css({
-        display: "flex",
-        flexDirection: "column",
-        gap: "1rem",
-
-        ".accordion-item": {
-            maxWidth: "768px",
-            width: "100%",
-            margin: "0 auto",
-            backgroundColor: "white",
-            border: "1px solid var(--gray-muted)",
-        },
-
-        ".accordion-header": {
-            fontSize: "1rem",
-            margin: 0,
-        },
-
-        ".accordion-body": {
-            fontSize: "0.975rem !important",
-            padding: "0rem 2rem 1rem 2rem !important",
-        },
-
-        ".accordion-header button": {
-            backgroundColor: "white",
-            border: "none",
-            width: "100%",
-            textAlign: "left",
-            padding: "1rem 2rem",
-            fontWeight: 500,
-        },
-    }),
-};
 
 export default function FAQ({ faqData }) {
     if (!faqData || !faqData.length > 0) return null;
 
     return (
-        <section className="section-darken" css={styles.faqCardGrid}>
+        <section className="section-darken faq-card-grid">
             <SubHeader title="Frequently Asked Questions" />
             <Container className="mt-5 px-4">
                 <FAQAccordion faqData={faqData} />
             </Container>
+            <style jsx global>
+                {`
+                    .faq-card-grid {
+                        padding: 2.75rem 0rem;
+                    }
+
+                    .faq-accordion {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
+                    }
+
+                    .faq-accordion .accordion-item {
+                        max-width: 768px;
+                        width: 100%;
+                        margin: 0 auto;
+                        background-color: white;
+                        border: 1px solid var(--gray-muted);
+                    }
+
+                    .faq-accordion .accordion-header {
+                        font-size: 1rem;
+                        margin: 0;
+                    }
+
+                    .faq-accordion .accordion-body {
+                        font-size: 0.975rem !important;
+                        padding: 0rem 2rem 1rem 2rem !important;
+                    }
+
+                    .faq-accordion .accordion-header button {
+                        background-color: white;
+                        border: none;
+                        width: 100%;
+                        text-align: left;
+                        padding: 1rem 2rem;
+                        font-weight: 500;
+                    }
+                `}
+            </style>
         </section>
     );
 }
 
 function FAQAccordion({ faqData }) {
     return (
-        <Accordion defaultActiveKey="0" css={styles.faqAccordion}>
+        <Accordion defaultActiveKey="0" className="faq-accordion">
             {faqData.map((faq, index) => {
                 return (
                     <Accordion.Item eventKey={index.toString()} key={index}>

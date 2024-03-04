@@ -1,13 +1,5 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import SubHeader from "./SubHeader";
-
-const styles = {
-    cardGrid: css({
-        padding: "2.75rem 0rem",
-    }),
-};
 
 export default function CardGrid({
     cardItems,
@@ -22,7 +14,7 @@ export default function CardGrid({
     if (!cardItems || !cardItems.length > 0) return null;
 
     return (
-        <section className="section-darken" css={styles.cardGrid}>
+        <section className="section-darken card-grid">
             <Container>
                 {title && <SubHeader title={title} description={description} />}
                 <Row className="no-gutters">
@@ -55,6 +47,13 @@ export default function CardGrid({
                     })}
                 </Row>
             </Container>
+            <style jsx global>
+                {`
+                    .card-grid {
+                        padding: 2.75rem 0rem;
+                    }
+                `}
+            </style>
         </section>
     );
 }

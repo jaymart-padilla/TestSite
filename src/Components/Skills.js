@@ -1,24 +1,6 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
 import { Col, Container, ProgressBar, Row } from "react-bootstrap";
 import SubHeader from "./SubHeader";
 import { skills } from "../config/dummy-data";
-
-const styles = {
-    skillProgress: css({
-        ".progress": {
-            height: "0.675rem",
-        },
-        ".progress-bar": {
-            backgroundColor: "var(--accent-color)",
-        },
-    }),
-
-    skillProgressLabel: css({
-        fontSize: "0.75rem",
-        fontWeight: 500,
-    }),
-};
 
 export default function Skills() {
     return (
@@ -32,29 +14,34 @@ export default function Skills() {
                     return <Progress {...skill} key={index} />;
                 })}
             </Row>
+            <style jsx global>
+                {`
+                    .skill-progress .progress {
+                        height: 0.675rem;
+                    }
+
+                    .skill-progress .progress-bar {
+                        background-color: var(--accent-color);
+                    }
+
+                    .skill-progress-label {
+                        font-size: 0.75rem;
+                        font-weight: 500;
+                    }
+                `}
+            </style>
         </Container>
     );
 }
 
 function Progress({ label, value }) {
     return (
-        <Col
-            className="text-center pb-3 px-4"
-            sm={12}
-            md={6}
-            css={styles.skillProgress}
-        >
+        <Col className="text-center pb-3 px-4 skill-progress" sm={12} md={6}>
             <div className="d-flex justify-content-between align-items-center mb-1">
-                <small
-                    className="text-uppercase"
-                    css={styles.skillProgressLabel}
-                >
+                <small className="text-uppercase skill-progress-label">
                     {label}
                 </small>
-                <small
-                    className="text-uppercase"
-                    css={styles.skillProgressLabel}
-                >
+                <small className="text-uppercase skill-progress-label">
                     {value}&#37;
                 </small>
             </div>

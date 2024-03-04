@@ -1,34 +1,4 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
 import { Card, Col, Container, Row } from "react-bootstrap";
-
-const styles = {
-    testimonialCardGrid: css({
-        padding: "2.75rem 0rem",
-    }),
-
-    testimonialCardGridItem: css({
-        margin: "0 0.75rem",
-        height: "100%",
-        border: "none",
-    }),
-
-    testimonialTitle: css({
-        fontWeight: 500,
-    }),
-
-    testimonialQuote: css({
-        margin: 0,
-        fontSize: "0.9rem",
-        fontStyle: "italic",
-        lineHeight: "1.5rem",
-        wordSpacing: "0.075rem",
-    }),
-
-    testimonialQuoteMarks: css({
-        color: "var(--gray-muted)",
-    }),
-};
 
 export default function TestimonialCard({
     testimonials,
@@ -39,7 +9,7 @@ export default function TestimonialCard({
     if (!testimonials || !testimonials.length > 0) return null;
 
     return (
-        <section className="section-darken" css={styles.testimonialCardGrid}>
+        <section className="section-darken testimonial-card-grid">
             <Container>
                 <Row className="no-gutters">
                     {testimonials.map((testimonial, index) => {
@@ -63,6 +33,35 @@ export default function TestimonialCard({
                     })}
                 </Row>
             </Container>
+            <style jsx global>
+                {`
+                    .testimonial-card-grid {
+                        padding: 2.75rem 0rem;
+                    }
+
+                    .testimonial-card-grid-item {
+                        margin: 0 0.75rem;
+                        height: 100%;
+                        border: none;
+                    }
+
+                    .testimonial-title {
+                        font-weight: 500;
+                    }
+
+                    .testimonial-quote {
+                        margin: 0;
+                        font-size: 0.9rem;
+                        font-style: italic;
+                        line-height: 1.5rem;
+                        word-spacing: 0.075rem;
+                    }
+
+                    .testimonial-quote-marks {
+                        color: var(--gray-muted);
+                    }
+                `}
+            </style>
         </section>
     );
 }
@@ -70,8 +69,9 @@ export default function TestimonialCard({
 function CardItem({ name, title, img, text, imgPxSize, withShadow }) {
     return (
         <Card
-            className={`px-3 ${withShadow && "shadow-sm"}`}
-            css={styles.testimonialCardGridItem}
+            className={`px-3 testimonial-card-grid-item ${
+                withShadow && "shadow-sm"
+            }`}
         >
             <Card.Body>
                 <img
@@ -88,24 +88,15 @@ function CardItem({ name, title, img, text, imgPxSize, withShadow }) {
                     }}
                 />
                 <div className="d-flex flex-column align-items-start pl-2 pb-3">
-                    <strong css={styles.testimonialTitle}>{name}</strong>
-                    <small
-                        className="text-muted mt-1"
-                        css={styles.testimonialTitle}
-                    >
+                    <strong className="testimonial-title">{name}</strong>
+                    <small className="text-muted mt-1 testimonial-title">
                         {title}
                     </small>
                 </div>
-                <p css={styles.testimonialQuote} className="text-left">
-                    <i
-                        className="fa-solid fa-quote-left fa-2xl pr-2"
-                        css={styles.testimonialQuoteMarks}
-                    />
+                <p className="text-left testimonial-quote">
+                    <i className="fa-solid fa-quote-left fa-2xl pr-2 testimonial-quote-marks" />
                     {text}
-                    <i
-                        className="fa-solid fa-quote-right fa-2xl pl-2"
-                        css={styles.testimonialQuoteMarks}
-                    />
+                    <i className="fa-solid fa-quote-right fa-2xl pl-2 testimonial-quote-marks" />
                 </p>
             </Card.Body>
         </Card>

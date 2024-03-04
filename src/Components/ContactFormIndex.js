@@ -1,51 +1,4 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-
-const styles = {
-    container: css({
-        maxWidth: "768px",
-    }),
-
-    contactInfo: css({
-        margin: "0 auto",
-
-        "@media (max-width: 768px)": {
-            flexDirection: "column",
-            gap: "2rem",
-            marginTop: "-2.75rem",
-        },
-    }),
-
-    contactInfoContainer: css({
-        display: "flex",
-        gap: "1rem",
-    }),
-
-    contactInfoLabel: css({
-        fontSize: "1.25rem",
-        fontWeight: 500,
-        marginBottom: "0.25rem",
-    }),
-
-    contactInfoText: css({
-        color: "gray",
-    }),
-
-    contactInfoIcon: css({
-        color: "var(--accent-color)",
-        padding: "1rem 0.25rem",
-    }),
-
-    contactForm: css({
-        margin: "0 auto",
-        marginTop: "1.25rem",
-    }),
-
-    contactFormInput: css({
-        fontSize: "small",
-    }),
-};
 
 export default function ContactFormIndex() {
     return (
@@ -54,62 +7,98 @@ export default function ContactFormIndex() {
                 <ContactInfo />
                 <ContactForm />
             </Container>
+            <style jsx global>
+                {`
+                    .contact-root {
+                        max-width: 768px;
+                    }
+
+                    .contact-info {
+                        margin: 0 auto;
+                    }
+
+                    .contact-info-container {
+                        display: flex;
+                        gap: 1rem;
+                    }
+
+                    .contact-info-label {
+                        font-size: 1.25rem;
+                        font-weight: 500;
+                        margin-bottom: 0.25rem;
+                    }
+
+                    .contact-info-text {
+                        color: gray;
+                    }
+
+                    .contact-info-icon {
+                        color: var(--accent-color);
+                        padding: 1rem 0.25rem;
+                    }
+
+                    .contact-form {
+                        margin: 0 auto;
+                        margin-top: 1.25rem;
+                    }
+
+                    .contact-form-input {
+                        font-size: small;
+                    }
+
+                    @media (max-width: 768px) {
+                        .contact-info {
+                            flex-direction: column;
+                            gap: 2rem;
+                            margin-top: -2.25rem;
+                        }
+                    }
+                `}
+            </style>
         </section>
     );
 }
 
 function ContactInfo() {
     return (
-        <div
-            className="d-flex justify-content-between px-5 py-4"
-            css={[styles.contactRoot, styles.contactInfo]}
-        >
-            <div css={styles.contactInfoContainer}>
-                <i
-                    css={styles.contactInfoIcon}
-                    className="fa-solid fa-location-dot fa-xl"
-                />
+        <div className="d-flex justify-content-between px-5 py-4 contact-root contact-info">
+            <div className="contact-info-container">
+                <i className="fa-solid fa-location-dot fa-xl contact-info-icon" />
                 <div>
-                    <p css={styles.contactInfoLabel}>Location:</p>
+                    <p className="contact-info-label">Location:</p>
                     <div className="d-flex flex-column">
-                        <small css={styles.contactInfoText}>
+                        <small className="contact-info-text">
                             A108 Adam Street
                         </small>
-                        <small css={styles.contactInfoText}>
+                        <small className="contact-info-text">
                             New York, NY 535022
                         </small>
                     </div>
                 </div>
             </div>
-            <div css={styles.contactInfoContainer}>
-                <i
-                    css={styles.contactInfoIcon}
-                    className="fa-solid fa-envelope fa-xl"
-                />
+            <div className="contact-info-container">
+                <i className="fa-solid fa-envelope fa-xl contact-info-icon" />
                 <div>
-                    <p css={styles.contactInfoLabel}>Email:</p>
+                    <p className="contact-info-label">Email:</p>
                     <div className="d-flex flex-column">
-                        <small css={styles.contactInfoText}>
+                        <small className="contact-info-text">
                             info@example.com
                         </small>
-                        <small css={styles.contactInfoText}>
+                        <small className="contact-info-text">
                             contact@example.com
                         </small>
                     </div>
                 </div>
             </div>
-            <div css={styles.contactInfoContainer}>
-                <i
-                    css={styles.contactInfoIcon}
-                    className="fa-solid fa-mobile-screen fa-xl"
-                />
+            <div className="contact-info-container">
+                <i className="fa-solid fa-mobile-screen fa-xl contact-info-icon" />
                 <div>
-                    <p css={styles.contactInfoLabel}>Call:</p>
+                    <p className="contact-info-label">Call:</p>
                     <div className="d-flex flex-column">
-                        <small css={styles.contactInfoText}>
+                        <small className="contact-info-text">
                             +1 5589 55488 51
                         </small>
-                        <small css={styles.contactInfoText}>
+                        <small className="contact-info-text">
                             +1 5589 22475 14
                         </small>
                     </div>
@@ -121,29 +110,26 @@ function ContactInfo() {
 
 function ContactForm() {
     return (
-        <Form
-            css={[styles.contactRoot, styles.contactForm]}
-            style={{ gap: "1rem" }}
-        >
+        <Form className="contact-root contact-form" style={{ gap: "1rem" }}>
             <Row>
                 <Form.Group as={Col} controlId="name" className="mb-4">
                     <Form.Control
                         placeholder="Your Name"
-                        css={styles.contactFormInput}
+                        className="contact-form-input"
                     />
                 </Form.Group>
                 <Form.Group as={Col} controlId="email" className="mb-4">
                     <Form.Control
                         type="email"
                         placeholder="Your Email"
-                        css={styles.contactFormInput}
+                        className="contact-form-input"
                     />
                 </Form.Group>
             </Row>
             <Form.Group controlId="subject" className="mb-4">
                 <Form.Control
                     placeholder="Subject"
-                    css={styles.contactFormInput}
+                    className="contact-form-input"
                 />
             </Form.Group>
             <Form.Group controlId="message" className="mb-4">
@@ -151,7 +137,7 @@ function ContactForm() {
                     as="textarea"
                     placeholder="Message"
                     rows={3}
-                    css={styles.contactFormInput}
+                    className="contact-form-input"
                 />
             </Form.Group>
             <Button

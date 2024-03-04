@@ -1,30 +1,6 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
 import { Container, Nav, Row, Card, Tab } from "react-bootstrap";
 import { galleryItems } from "../config/dummy-data";
 import { useState } from "react";
-
-const styles = {
-    galleryNav: css({
-        ".nav-link.active, .show > .nav-link": {
-            backgroundColor: "var(--accent-color)",
-        },
-    }),
-
-    galleryNavItem: css({
-        "> a": {
-            color: "black",
-            fontSize: "small",
-            fontWeight: 500,
-            textTransform: "uppercase",
-        },
-
-        "> a:hover, > a:focus": {
-            backgroundColor: "var(--accent-color-muted)",
-            color: "white",
-        },
-    }),
-};
 
 const tabs = [
     { title: "All", category: "all", link: "link-1" },
@@ -37,20 +13,19 @@ export default function Gallery() {
     const [activeKey, setActiveKey] = useState(tabs[0].link);
 
     return (
-        <Container css={styles} className="my-5">
+        <Container className="my-5">
             <Tab.Container
                 activeKey={activeKey}
                 onSelect={(selectedKey) => setActiveKey(selectedKey)}
             >
                 <Nav
                     variant="pills"
-                    className="justify-content-center"
-                    css={styles.galleryNav}
+                    className="justify-content-center gallery-nav"
                 >
                     {/* pills */}
                     {tabs.map((tab, index) => {
                         return (
-                            <Nav.Item css={styles.galleryNavItem} key={index}>
+                            <Nav.Item className="gallery-nav-item" key={index}>
                                 <Nav.Link eventKey={tab.link}>
                                     {tab.title}
                                 </Nav.Link>
@@ -86,6 +61,27 @@ export default function Gallery() {
                     })}
                 </Tab.Content>
             </Tab.Container>
+            <style jsx global>
+                {`
+                    .gallery-nav .nav-link.active,
+                    .gallery-nav .show > .nav-link {
+                        background-color: var(--accent-color);
+                    }
+
+                    .gallery-nav-item > a {
+                        color: black;
+                        font-size: small;
+                        font-weight: 500;
+                        text-transform: uppercase;
+                    }
+
+                    .gallery-nav-item > a:hover,
+                    .gallery-nav-item > a:focus {
+                        background-color: var(--accent-color-muted);
+                        color: white;
+                    }
+                `}
+            </style>
         </Container>
     );
 }
