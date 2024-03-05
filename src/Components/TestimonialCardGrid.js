@@ -1,6 +1,6 @@
 import { Card, Col, Container, Row } from "react-bootstrap";
 
-export default function TestimonialCard({
+export default function TestimonialCardGrid({
     testimonials,
     colSize = 2,
     withShadow = false,
