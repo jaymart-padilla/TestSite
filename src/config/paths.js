@@ -6,6 +6,24 @@ export const paths = {
     about: {
         url: "/about",
         text: "About",
+        innerLinks: [
+            {
+                url: "/about",
+                text: "About",
+            },
+            {
+                url: "/team",
+                text: "Team",
+            },
+            {
+                url: "/testimonials",
+                text: "Testimonials",
+            },
+            {
+                url: "/deep-dropdown",
+                text: "Deep Dropdown",
+            },
+        ],
     },
     services: {
         url: "/services",

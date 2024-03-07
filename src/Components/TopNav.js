@@ -47,8 +47,7 @@ export default function TopNav() {
                                 href="#"
                                 className="nav-container-dropdown-link"
                             >
-                                <span className="mr-4">Deep Dropdown</span>
-                                <i className="fa-solid fa-chevron-right" />
+                                Deep Dropdown
                             </NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link
@@ -117,9 +116,53 @@ export default function TopNav() {
                         font-weight: 500;
                     }
 
+                    .top-nav-container .nav-link:hover,
+                    .top-nav-container .dropdown-toggle.show {
+                        color: var(--accent-color) !important;
+                    }
+
+                    .top-nav-container .dropdown-menu {
+                        padding: 0;
+                        border: none;
+                    }
+
                     .top-nav-container .nav-container-dropdown-link {
+                        position: relative;
                         font-size: small;
                         font-weight: 500;
+                        padding-top: 0.5rem;
+                        padding-bottom: 0.5rem;
+
+                        -webkit-transition: 0.3s all ease;
+                        -o-transition: 0.3s all ease;
+                        transition: 0.3s all ease;
+                    }
+
+                    .top-nav-container .nav-container-dropdown-link:hover {
+                        color: var(--accent-color) !important;
+                        background-color: var(--light-muted);
+                        padding-left: 1.75rem;
+                    }
+
+                    .top-nav-container .nav-container-dropdown-link:before {
+                        content: "";
+                        position: absolute;
+                        width: 0px;
+                        height: 100%;
+                        left: 0;
+                        bottom: 0;
+                        top: 0;
+                        opacity: 0;
+                        visibility: hidden;
+                        z-index: 2;
+                        background-color: var(--accent-color);
+                    }
+
+                    .top-nav-container
+                        .nav-container-dropdown-link:hover:before {
+                        visibility: visible;
+                        opacity: 100%;
+                        width: 0.325rem;
                     }
 
                     .top-nav-container a.dropdown-toggle.nav-link {
@@ -133,6 +176,10 @@ export default function TopNav() {
 
                         .top-navbar-social-icons {
                             gap: 1.25rem;
+                        }
+
+                        .top-nav-container .nav-container-dropdown-link {
+                            border-bottom: 1px solid var(--light-muted);
                         }
                     }
                 `}
