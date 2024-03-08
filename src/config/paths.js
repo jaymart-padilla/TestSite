@@ -4,7 +4,6 @@ export const paths = {
         text: "Home",
     },
     about: {
-        url: "/about",
         text: "About",
         innerLinks: [
             {
@@ -44,13 +43,5 @@ export const paths = {
     contact: {
         url: "/contact",
         text: "Contact",
-    },
-    team: {
-        url: "/team",
-        text: "Team",
-    },
-    testimonials: {
-        url: "/testimonials",
-        text: "Testimonials",
     },
 };

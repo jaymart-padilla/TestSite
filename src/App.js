@@ -22,10 +22,28 @@ const router = createBrowserRouter(
         <Route path="/" element={<IndexLayout />} errorElement={<ErrorPage />}>
             <Route errorElement={<ErrorPage />}>
                 <Route index element={<Index />} />
-                <Route path={paths.about.url} element={<About />} />
-                <Route path={paths.team.url} element={<Team />} />
                 <Route
-                    path={paths.testimonials.url}
+                    path={
+                        paths.about.innerLinks.find(
+                            (innerLink) => innerLink.url === "/about"
+                        ).url
+                    }
+                    element={<About />}
+                />
+                <Route
+                    path={
+                        paths.about.innerLinks.find(
+                            (innerLink) => innerLink.url === "/team"
+                        ).url
+                    }
+                    element={<Team />}
+                />
+                <Route
+                    path={
+                        paths.about.innerLinks.find(
+                            (innerLink) => innerLink.url === "/testimonials"
+                        ).url
+                    }
                     element={<Testimonials />}
                 />
                 <Route path={paths.services.url} element={<Services />} />

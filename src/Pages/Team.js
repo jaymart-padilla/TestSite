@@ -4,11 +4,15 @@ import { paths } from "../config/paths";
 import { team } from "../config/dummy-data";
 
 export default function Team() {
+    const teamPath = paths.about.innerLinks.find(
+        (innerLink) => innerLink.url === "/team"
+    );
+
     return (
         <div className="flex-grow-1">
             <TopBreadcrumbs
-                links={[paths.home, paths.team]}
-                activeLink={paths.team}
+                links={[paths.home, teamPath]}
+                activeLink={teamPath}
             />
             <CardGrid
                 cardItems={team}

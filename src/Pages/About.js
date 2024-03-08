@@ -7,11 +7,15 @@ import { paths } from "../config/paths";
 import { team } from "../config/dummy-data";
 
 export default function About() {
+    const aboutPath = paths.about.innerLinks.find(
+        (innerLink) => innerLink.url === "/about"
+    );
+
     return (
         <div className="flex-grow-1">
             <TopBreadcrumbs
-                links={[paths.home, paths.about]}
-                activeLink={paths.about}
+                links={[paths.home, aboutPath]}
+                activeLink={aboutPath}
             />
             <Banner />
             <CardGrid

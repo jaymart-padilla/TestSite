@@ -1,6 +1,7 @@
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import { paths } from "../config/paths";
 import { socialLinks } from "../config/social-links";
+import { useMatch } from "react-router-dom";
 
 export default function TopNav() {
     return (
@@ -14,73 +15,7 @@ export default function TopNav() {
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav" className="gap-5">
-                    <Nav className="ml-auto top-nav-container">
-                        <Nav.Link
-                            href={paths.home.url}
-                            className="text-dark nav-container-link"
-                        >
-                            {paths.home.text}
-                        </Nav.Link>
-                        <NavDropdown
-                            title="About"
-                            className="text-dark nav-container-link"
-                        >
-                            <NavDropdown.Item
-                                href={paths.about.url}
-                                className="nav-container-dropdown-link"
-                            >
-                                {paths.about.text}
-                            </NavDropdown.Item>
-                            <NavDropdown.Item
-                                href={paths.team.url}
-                                className="nav-container-dropdown-link"
-                            >
-                                {paths.team.text}
-                            </NavDropdown.Item>
-                            <NavDropdown.Item
-                                href={paths.testimonials.url}
-                                className="nav-container-dropdown-link"
-                            >
-                                {paths.testimonials.text}
-                            </NavDropdown.Item>
-                            <NavDropdown.Item
-                                href="#"
-                                className="nav-container-dropdown-link"
-                            >
-                                Deep Dropdown
-                            </NavDropdown.Item>
-                        </NavDropdown>
-                        <Nav.Link
-                            href={paths.services.url}
-                            className="text-dark nav-container-link"
-                        >
-                            {paths.services.text}
-                        </Nav.Link>
-                        <Nav.Link
-                            href={paths.portfolio.url}
-                            className="text-dark nav-container-link"
-                        >
-                            {paths.portfolio.text}
-                        </Nav.Link>
-                        <Nav.Link
-                            href={paths.pricing.url}
-                            className="text-dark nav-container-link"
-                        >
-                            {paths.pricing.text}
-                        </Nav.Link>
-                        <Nav.Link
-                            href={paths.blog.url}
-                            className="text-dark nav-container-link"
-                        >
-                            {paths.blog.text}
-                        </Nav.Link>
-                        <Nav.Link
-                            href={paths.contact.url}
-                            className="text-dark nav-container-link"
-                        >
-                            {paths.contact.text}
-                        </Nav.Link>
-                    </Nav>
+                    <NavLinks paths={paths} />
                     <div className="d-none d-lg-block mx-2">|</div>
                     <Nav className="d-flex flex-row top-navbar-social-icons">
                         <Nav.Link href={socialLinks.twitter} target="_blank">
@@ -114,6 +49,10 @@ export default function TopNav() {
 
                     .top-nav-container .nav-container-link {
                         font-weight: 500;
+                    }
+
+                    .top-nav-container .nav-container-link.active {
+                        color: var(--accent-color) !important;
                     }
 
                     .top-nav-container .nav-link:hover,
@@ -185,5 +124,50 @@ export default function TopNav() {
                 `}
             </style>
         </Container>
+    );
+}
+
+function NavLinks({ paths }) {
+    return (
+        <Nav className="ml-auto top-nav-container">
+            {Object.values(paths).map((path, index) => {
+                if (path.innerLinks && path.innerLinks.length > 0)
+                    return (
+                        <NavDropDown innerLinks={path.innerLinks} key={index} />
+                    );
+                return <NavLink path={path} key={index} />;
+            })}
+        </Nav>
+    );
+}
+
+function NavDropDown({ innerLinks }) {
+    return (
+        <NavDropdown title="About" className="text-dark nav-container-link">
+            {innerLinks.map((innerLink, key) => {
+                return (
+                    <NavDropdown.Item
+                        href={innerLink.url}
+                        className="nav-container-dropdown-link"
+                        key={key}
+                    >
+                        {innerLink.text}
+                    </NavDropdown.Item>
+                );
+            })}
+        </NavDropdown>
+    );
+}
+
+function NavLink({ path }) {
+    const match = useMatch(path.url);
+
+    return (
+        <Nav.Link
+            href={path.url}
+            className={`text-dark nav-container-link ${match && "active"}`}
+        >
+            {path.text}
+        </Nav.Link>
     );
 }
