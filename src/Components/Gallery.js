@@ -13,7 +13,7 @@ export default function Gallery() {
     const [activeKey, setActiveKey] = useState(tabs[0].link);
 
     return (
-        <Container className="my-5">
+        <Container className="my-5 px-4">
             <Tab.Container
                 activeKey={activeKey}
                 onSelect={(selectedKey) => setActiveKey(selectedKey)}

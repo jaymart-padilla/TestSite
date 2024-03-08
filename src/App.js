@@ -11,10 +11,11 @@ import About from "./Pages/About";
 import Team from "./Pages/Team";
 import Testimonials from "./Pages/Testimonials";
 import Services from "./Pages/Services";
+import Portfolio from "./Pages/Portfolio";
 import Pricing from "./Pages/Pricing";
-import Contact from "./Pages/Contact";
 import BlogIndex from "./Pages/BlogIndex";
 import BlogSingle from "./Pages/BlogSingle";
+import Contact from "./Pages/Contact";
 import { paths } from "./config/paths";
 
 const router = createBrowserRouter(
@@ -47,13 +48,14 @@ const router = createBrowserRouter(
                     element={<Testimonials />}
                 />
                 <Route path={paths.services.url} element={<Services />} />
+                <Route path={paths.portfolio.url} element={<Portfolio />} />
                 <Route path={paths.pricing.url} element={<Pricing />} />
-                <Route path={paths.contact.url} element={<Contact />} />
                 <Route path={paths.blog.url} element={<BlogIndex />} />
                 <Route
                     path={paths.blog.url + "/:id"}
                     element={<BlogSingle />}
                 />
+                <Route path={paths.contact.url} element={<Contact />} />
             </Route>
         </Route>
     )

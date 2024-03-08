@@ -36,7 +36,8 @@ export default function TopNav() {
             <style jsx global>
                 {`
                     .top-navbar {
-                        padding: 0.5rem 0;
+                        padding-top: 0.5rem;
+                        padding-bottom: 0.5rem;
                     }
 
                     .top-navbar-brand {

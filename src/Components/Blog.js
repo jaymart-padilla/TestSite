@@ -8,7 +8,7 @@ import { blogData } from "../config/dummy-data";
 
 export default function Blog() {
     return (
-        <Container className="p-5">
+        <Container className="px-3 py-2 px-md-5 py-md-5">
             <Row>
                 <Col xs={{ order: 2, span: 12 }} lg={{ order: 1, span: 8 }}>
                     {blogData.map((blog, index) => (
