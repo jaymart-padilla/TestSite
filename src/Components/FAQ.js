@@ -1,5 +1,11 @@
-import { Container, Accordion } from "react-bootstrap";
+import {
+    Container,
+    Accordion,
+    useAccordionButton,
+    AccordionContext,
+} from "react-bootstrap";
 import SubHeader from "./SubHeader";
+import { useContext } from "react";
 
 export default function FAQ({ faqData }) {
     if (!faqData || !faqData.length > 0) return null;
@@ -48,16 +54,50 @@ export default function FAQ({ faqData }) {
                         text-align: left;
                         padding: 1rem 2rem;
                         font-weight: 500;
+
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    .faq-accordion .accordion-header .accordion-button i {
+                        color: var(--accent-color);
                     }
 
                     .faq-accordion
                         .accordion-header
-                        .accordion-button.collapsed {
+                        .accordion-button.collapsed,
+                    .faq-accordion
+                        .accordion-header
+                        .accordion-button.collapsed
+                        i {
                         color: black;
                     }
                 `}
             </style>
         </section>
+    );
+}
+
+function ContextAwareToggle({ eventKey, callback }) {
+    const { activeEventKey } = useContext(AccordionContext);
+
+    const decoratedOnClick = useAccordionButton(
+        eventKey,
+        () => callback && callback(eventKey)
+    );
+
+    const isCurrentEventKey = activeEventKey === eventKey;
+
+    return isCurrentEventKey ? (
+        <i
+            className="fa-solid fa-chevron-up ml-auto"
+            onClick={decoratedOnClick}
+        />
+    ) : (
+        <i
+            className="fa-solid fa-chevron-down ml-auto"
+            onClick={decoratedOnClick}
+        />
     );
 }
 
@@ -70,6 +110,7 @@ function FAQAccordion({ faqData }) {
                         <Accordion.Header>
                             <i className="fa-solid fa-circle-question mr-3" />
                             {faq.question}
+                            <ContextAwareToggle eventKey={index.toString()} />
                         </Accordion.Header>
                         <Accordion.Body className="py-2 px-4">
                             {faq.answer}
