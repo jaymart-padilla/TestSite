@@ -8,20 +8,25 @@ import { blogComment } from "../config/dummy-data";
 
 export default function BlogItem({ blog }) {
     return (
-        <Container className="p-5">
+        <Container className="py-3 py-lg-5 blog-container">
             <Row>
-                <Col xs={{ order: 2, span: 12 }} lg={{ order: 1, span: 8 }}>
+                <Col xs={{ span: 12 }} lg={{ span: 8 }}>
                     <BlogCard {...blog} />
                     <ProfileCard />
                     <BlogComments />
                     <BlogLeaveReplyForm />
                 </Col>
-                <Col xs={{ order: 1, span: 12 }} lg={{ order: 2, span: 4 }}>
+                <Col xs={{ span: 12 }} lg={{ span: 4 }}>
                     <BlogSidebar />
                 </Col>
             </Row>
             <style jsx global>
                 {`
+                    .blog-container {
+                        padding-left: 2rem;
+                        padding-right: 2rem;
+                    }
+
                     .blog-item-card {
                         margin-bottom: 2rem;
                     }

@@ -8,19 +8,24 @@ import { blogData } from "../config/dummy-data";
 
 export default function Blog() {
     return (
-        <Container className="px-3 py-2 px-md-5 py-md-5">
+        <Container className="py-3 py-md-5 blog-container">
             <Row>
-                <Col xs={{ order: 2, span: 12 }} lg={{ order: 1, span: 8 }}>
+                <Col xs={{ span: 12 }} lg={{ span: 8 }}>
                     {blogData.map((blog, index) => (
                         <BlogCard {...blog} key={blog.id || index} />
                     ))}
                     <BlogPagination />
                 </Col>
-                <Col xs={{ order: 1, span: 12 }} lg={{ order: 2, span: 4 }}>
+                <Col xs={{ span: 12 }} lg={{ span: 4 }}>
                     <BlogSidebar />
                 </Col>
             </Row>
             <style jsx global>{`
+                .blog-container {
+                    padding-left: 2rem;
+                    padding-right: 2rem;
+                }
+
                 .blog-card {
                     margin-bottom: 2.75rem;
                 }
@@ -112,7 +117,7 @@ function BlogCard({ id, title, author, date, comments, img, content }) {
     });
 
     return (
-        <Card className="blog-card">
+        <Card className="blog-card shadow">
             <Card.Img
                 variant="top"
                 src={img}

@@ -9,6 +9,8 @@ export default function FAQ({ faqData }) {
             <SubHeader title="Frequently Asked Questions" />
             <Container className="mt-5 px-4">
                 <FAQAccordion faqData={faqData} />
+                {/* TODO: fontawesome css animation delay */}
+                <i className="fa-solid fa-circle-question mr-3 res" />
             </Container>
             <style jsx global>
                 {`
@@ -40,13 +42,20 @@ export default function FAQ({ faqData }) {
                         padding: 0rem 2rem 1rem 2rem !important;
                     }
 
-                    .faq-accordion .accordion-header button {
+                    .faq-accordion .accordion-header .accordion-button {
+                        color: var(--accent-color);
                         background-color: white;
                         border: none;
                         width: 100%;
                         text-align: left;
                         padding: 1rem 2rem;
                         font-weight: 500;
+                    }
+
+                    .faq-accordion
+                        .accordion-header
+                        .accordion-button.collapsed {
+                        color: black;
                     }
                 `}
             </style>

@@ -5,7 +5,7 @@ import { blogCategories, blogData, blogTags } from "../config/dummy-data";
 
 export default function BlogSidebar() {
     return (
-        <section className="p-3 blog-sidebar">
+        <section className="py-3 px-4 mt-4 mt-lg-0 blog-sidebar shadow border">
             <SearchSection />
             <CategoriesSection />
             <RecentPostSection />
