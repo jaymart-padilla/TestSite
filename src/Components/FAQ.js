@@ -9,8 +9,6 @@ export default function FAQ({ faqData }) {
             <SubHeader title="Frequently Asked Questions" />
             <Container className="mt-5 px-4">
                 <FAQAccordion faqData={faqData} />
-                {/* TODO: fontawesome css animation delay */}
-                <i className="fa-solid fa-circle-question mr-3 res" />
             </Container>
             <style jsx global>
                 {`
