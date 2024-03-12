@@ -14,7 +14,12 @@ import { paths } from "../config/paths";
 const footerLinks = {
     usefulLinks: [
         { title: paths.home.text, url: paths.home.url },
-        { title: paths.about.text, url: paths.about.url },
+        {
+            title: paths.about.text,
+            url: paths.about.innerLinks.find(
+                (innerLink) => innerLink.url === "/about"
+            ).url,
+        },
         { title: paths.services.text, url: paths.services.url },
         { title: "Terms of Service", url: "#" },
         { title: "Privacy Policy", url: "#" },
