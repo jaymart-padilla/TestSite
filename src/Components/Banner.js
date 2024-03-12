@@ -60,8 +60,7 @@ export default function Banner() {
             <style jsx global>{`
                 .banner {
                     gap: 1.5rem;
-                    padding-top: 2.75rem;
-                    padding-bottom: 2.75rem;
+                    padding: 2.75rem 1.85rem;
                     font-size: 0.9rem;
                 }
                 .banner-child {
@@ -76,7 +75,9 @@ export default function Banner() {
                 }
                 @media (max-width: 576px) {
                     .banner {
-                        padding: 2.75rem 4rem;
+                         {
+                            /* padding: 2.75rem 4rem; */
+                        }
                     }
                 }
             `}</style>

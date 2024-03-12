@@ -37,7 +37,7 @@ export default function PricingCard({ pricingCardItems, colSize = 4 }) {
                 {`
                     .pricing-card-grid {
                         font-size: 0.9rem;
-                        padding: 2.75rem;
+                        padding: 2.75rem 0;
                     }
 
                     .pricing-card-grid .highlighted-price {
